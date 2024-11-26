@@ -26,7 +26,7 @@ if (isset($_SESSION['success_message'])) {
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="../templates/user.css?version=2">
+    <link rel="stylesheet" href="../templates/user.css?version=4">
     <title> <?= $title ?> </title>
     <script>
         // Function to show custom alert
@@ -63,6 +63,7 @@ if (isset($_SESSION['success_message'])) {
             const uploadButton = document.querySelector(".upload-button");
             const removeImageButton = document.getElementById("remove-image");
 
+            
             // Khi nhấn vào nút SVG, kích hoạt input file
             uploadButton.addEventListener("click", () => {
                 uploadImageInput.click();
@@ -92,6 +93,41 @@ if (isset($_SESSION['success_message'])) {
             });
         });
 
+        document.addEventListener("DOMContentLoaded", function() {
+            const pop_uploadImageInput = document.getElementById("pop-upload-image");
+            const pop_imagePreview = document.getElementById("pop-image-preview");
+            const pop_previewImg = document.getElementById("pop-preview-img");
+            const pop_uploadButton = document.querySelector(".pop-upload-button");
+            const pop_removeImageButton = document.getElementById("pop-remove-image");
+
+            // Khi nhấn vào nút SVG, kích hoạt input file
+            pop_uploadButton.addEventListener("click", () => {
+                pop_uploadImageInput.click();
+            });
+
+            // Hiển thị ảnh xem trước khi người dùng chọn file
+            pop_uploadImageInput.addEventListener("change", function() {
+                const file = this.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        pop_previewImg.src = e.target.result;
+                        pop_imagePreview.style.display = "block"; // Hiển thị phần preview
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    pop_previewImg.src = "#";
+                    pop_imagePreview.style.display = "none"; // Ẩn phần preview nếu không có ảnh
+                }
+            });
+
+            // Khi nhấn nút "x", xóa ảnh và ẩn preview
+            pop_removeImageButton.addEventListener("click", function() {
+                pop_previewImg.src = "#";
+                pop_imagePreview.style.display = "none"; // Ẩn phần preview khi xóa ảnh
+                pop_uploadImageInput.value = ""; // Reset input file
+            });
+        });
 
         document.addEventListener("input", function(event) {
             if (event.target.tagName.toLowerCase() === "textarea") {
@@ -184,20 +220,21 @@ if (isset($_SESSION['success_message'])) {
                             <label style="color: #000;" for="floatingPostCaption">What are you thinking about?</label>
                         </div>
                         <!-- Preview ảnh khi đã chọn -->
-                        <div id="image-preview" style="display: none; position: relative; text-align: center;">
+                        <div id="pop-image-preview" style="display: none; position: relative; text-align: center;">
                             <div class="image-background">
-                                <img id="preview-img" src="#" alt="Image Preview">
+                                <img id="pop-preview-img" src="#" alt="Image Preview">
                             </div>
-                            <button class="btn btn-outline-danger" id="remove-image" type="button">&times;</button>
-                        </div>
-                        <div class="post-footer">
+                            <button class="btn btn-outline-danger" id="pop-remove-image" type="button">&times;</button>
+                        </div> 
+                        <div class="post-footer">                    
                             <!-- Nút SVG thay thế cho input file -->
-                            <div class="upload-button input-group mb-3" style="display: flex; align-items: left; cursor: pointer;">
+                            <div class="pop-upload-button input-group mb-3" style="display: flex; align-items: left; cursor: pointer;">
                                 <img src="../images/add-image.svg" alt="Upload Image" width="32" height="32" style="cursor: pointer;">
                                 <span style="margin-left: 8px;">Upload Image</span>
-                                <input type="file" name="post_image" id="upload-image" accept="image/*" style="display: none;">
+                                <input type="file" name="post_image" id="pop-upload-image" accept="image/*" style="display: none;">
                             </div>
                         </div>
+                        
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <button type="submit" name="create_post" class="btn btn-primary">Post</button>

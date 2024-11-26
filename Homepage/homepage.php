@@ -3,8 +3,6 @@
 require "../Log in/check.php";
 include '../includes/Functions.php';
 
-// ob_start();
-// include '../includes/DatabaseConnection.php';
 $title = setTitle("All Public post");
 $posts = GetAllPosts($pdo);
 

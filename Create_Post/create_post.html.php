@@ -15,9 +15,9 @@
             <div class="image-background">
         <img id="preview-img" src="#" alt="Image Preview">
     </div>
-                <button class="btn btn-outline-danger" id="remove-image" type="button" >&times;</button>
+                <button class="btn btn-outline-danger" id="remove-image" type="button">&times;</button>
             </div>
-            <div class="post-footer ">
+            <div class="post-footer">
                 <!-- Nút SVG thay thế cho input file -->
                 <div class="upload-button" style="display: flex; align-items: left; cursor: pointer;">
                     <img src="../images/add-image.svg" alt="Upload Image" width="32" height="32" style="cursor: pointer;">

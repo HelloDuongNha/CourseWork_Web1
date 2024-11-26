@@ -65,9 +65,10 @@ if (isset($_POST['create_post'])) {
     $statement->bindValue(":img_path", $image_path); // Gán đường dẫn ảnh (hoặc NULL)
 
     $statement->execute();
-
+    $_SESSION['success_message'] = '+1 post!';
     // Điều hướng sau khi tạo bài viết
     header("location: ../Homepage/homepage.php");
+    exit();
 }
 $output = ob_get_clean();
 include '../templates/user_layout.html.php';

@@ -12,7 +12,11 @@ foreach ($posts as $post):
 
             <div class="post-content">
                 <p><?= $post['post_caption'] ?></p>
-                <img src="<?= $post['img_path'] ?>" alt="">
+                <?php
+                if (isset($post['img_path'])) { ?>
+                    <img src="<?= $post['img_path'] ?>">
+                <?php } ?>
+
             </div>
 
             <div class="post-footer">
@@ -56,7 +60,10 @@ foreach ($posts as $post):
             <div class="repost-content">
                 <p><?= $post['repost_caption'] ?></p>
                 <div class="post-inside">
-                    <img src="<?= $post['img_path'] ?>" alt="">
+                    <?php
+                    if (isset($post['img_path'])) { ?>
+                        <img src="<?= $post['img_path'] ?>">
+                    <?php } ?>
                     <div class="repost-header">
                         <img class="post-avatar" src="../images/profile.svg" alt="Avatar">
                         <span class="post-username"><?= $post['user_name'] ?></span> -
