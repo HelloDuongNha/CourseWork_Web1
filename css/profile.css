@@ -16,6 +16,34 @@
     box-sizing: border-box;
 }
 
+.profile-display-area {
+    justify-items: center;
+    width: 50vw;
+    /* Chiếm 50% chiều rộng màn hình để post căn giữa, và không lấn sang aside-right */
+    margin-left: 25%;
+    /* Chừa chỗ cho aside-left */
+    margin-right: 25%;
+    /* Chừa chỗ cho aside-right */
+    /* padding-top: 300px; */
+    /* Chừa chỗ cho header */
+    padding-bottom: 50px;
+    /* Chừa chỗ cho footer */
+}
+
+.profile-info-area {
+    justify-items: center;
+    width: 50vw;
+    /* Chiếm 50% chiều rộng màn hình để post căn giữa, và không lấn sang aside-right */
+    margin-left: 25%;
+    /* Chừa chỗ cho aside-left */
+    margin-right: 25%;
+    /* Chừa chỗ cho aside-right */
+    padding-top: 350px;
+    /* Chừa chỗ cho header */
+    padding-bottom: 50px;
+    /* Chừa chỗ cho footer */
+}
+
 .profile-header {
     display: flex;
     margin-left: 25%;
@@ -66,32 +94,4 @@
 .nav-bar-list li:hover {
     background-color: var(--background-color);
     cursor: pointer;
-}
-
-.profile-display-area {
-    justify-items: center;
-    width: 50vw;
-    /* Chiếm 50% chiều rộng màn hình để post căn giữa, và không lấn sang aside-right */
-    margin-left: 25%;
-    /* Chừa chỗ cho aside-left */
-    margin-right: 25%;
-    /* Chừa chỗ cho aside-right */
-    /* padding-top: 300px; */
-    /* Chừa chỗ cho header */
-    padding-bottom: 50px;
-    /* Chừa chỗ cho footer */
-}
-
-.profile-info-area {
-    justify-items: center;
-    width: 50vw;
-    /* Chiếm 50% chiều rộng màn hình để post căn giữa, và không lấn sang aside-right */
-    margin-left: 25%;
-    /* Chừa chỗ cho aside-left */
-    margin-right: 25%;
-    /* Chừa chỗ cho aside-right */
-    padding-top: 350px;
-    /* Chừa chỗ cho header */
-    padding-bottom: 50px;
-    /* Chừa chỗ cho footer */
 }

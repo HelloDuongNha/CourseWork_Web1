@@ -18,7 +18,7 @@
             <ul class="nav-bar-list">
                 <hr>
                 <li>
-                    <a href="">Edit Profile</a>
+                    <a href="../Profile/ShowUserDetail.php">Edit Profile</a>
                 </li>
                 <li>
                     <a href="../Profile/allPostProfile.php">All Posts</a>
@@ -30,9 +30,9 @@
         </div>
     </div>
 
-<div class="Profile-Info-area">
-    <?= $info ?>
-</div>
-    
+    <div class="profile-info-area">
+        <?= $info ?>
+    </div>
+
 
 </div>

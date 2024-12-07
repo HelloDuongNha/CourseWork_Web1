@@ -138,3 +138,13 @@ function GetAllUser($pdo)
     $users = $pdo->query($sql);
     return $users->fetchall();
 }
+
+function GetAllDataUser($pdo, $user_id)
+{
+    $sql = "SELECT * FROM users
+    WHERE user_id = :user_id";
+    $user = $pdo->prepare($sql);
+    $user->bindValue(':user_id', $user_id);
+    $user->execute();
+    return $user->fetchall();
+}
