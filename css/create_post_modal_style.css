@@ -1,0 +1,60 @@
+/* CSS cho Modal */
+#postModal {
+    /* background-color: rgba(0, 0, 0, 0.4); */
+    position: absolute;
+    padding-top: 100px;
+}
+
+/* Nội dung modal */
+.modal-content {
+    background-color: var(--post-bg-color);
+}
+
+/* Dấu "X" để đóng modal */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#image-preview, #pop-image-preview {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 400px;
+    margin: 10px auto;
+}
+
+
+#preview-img, #pop-preview-img  {
+    position: relative;
+    z-index: 2;
+    max-width: 90%;  /* Đảm bảo ảnh không vượt quá 90% chiều rộng của background */
+    max-height: 90%; /* Đảm bảo ảnh không vượt quá 90% chiều cao của background */
+    object-fit: contain; /* Giữ tỉ lệ ảnh */
+    border-radius: 8px;
+}
+
+#remove-image, #pop-remove-image {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    font-size: 30px;
+    color: var(--text-color);
+    cursor: pointer;
+    z-index: 3; /* Đảm bảo nút x nằm trên cùng */
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

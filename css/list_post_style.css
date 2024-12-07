@@ -1,0 +1,143 @@
+.post-form,
+.repost-form {
+    background-color: var(--post-bg-color);
+    border: var(--border-color) solid 1px;
+    padding-top: 6px;
+    padding: 5px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    margin-bottom: 50px;
+    width: 750px;
+    min-height: 150px;
+    
+    /* aspect-ratio: 16 / 8; */
+}
+
+.image-container {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ensures no overflow if the image is larger */
+    border-radius: 25px;
+    width: 100%;
+    max-height:100%;
+}
+
+.back-post-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    filter: blur(10px);
+    z-index: 1;
+}
+
+.post-image {
+    width: 60%;
+    position: relative;
+    object-fit: cover;
+    z-index: 2;
+    border-radius: 0px;
+}
+
+
+.post-header,
+.repost-header {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin: 10px 0 10px 10px
+}
+
+
+
+.post-content,
+.repost-content {
+    display: flex;
+    flex-direction: column;
+    /* Chuyển hướng flex thành dọc */
+    align-items: center;
+    /* Căn giữa theo chiều ngang */
+    justify-content: center;
+    /* Căn giữa theo chiều dọc */
+}
+
+.post-avatar {
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.post-username {
+    color: var(--heading-text-color);
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0px 10px 0 0;
+}
+
+.post-tag,
+.post-time {
+    font-weight: italic;
+    margin: 0 10px;
+    color: var(--border-color);
+    font-size: 14px;
+}
+
+.post-content p,
+.repost-content p {
+    align-self: flex-start; /* Đưa <p> về bên trái */
+    resize: none;
+    margin: 10px;
+}
+
+
+.post-inside {
+    resize: none;
+    max-width: 700px;
+    height: 100%;
+    border: var(--border-color) solid 1px;
+    border-radius: 20px;
+}
+
+
+.post-content p {
+    font-size: 24px;
+    /* font-weight: bold; */
+    margin-top: 10px;
+}
+
+.post-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    height: 50px;
+    color: var(--text-color);
+}
+
+.post-footer a {
+    display: flex;
+    gap: 10px;
+    width: 100px;
+    height: 35px;
+    justify-content: center;
+    padding-top: 5px;
+}
+
+.post-footer span {
+    color: var(--text-color);
+}
+
+.love span:hover {
+    color: red;
+    text-decoration: none;
+}
+
+.comment span:hover {
+    color: cyan;
+    text-decoration: none;
+}
+
+.share span:hover {
+    color: red;
+    text-decoration: none;
+}

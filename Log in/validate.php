@@ -40,8 +40,10 @@ if (isset($_POST['login'])) {
         }
 
         // Đăng nhập thành công
+        $_SESSION['user_avt'] = $user['avatar'];
         $_SESSION['username'] = $user['user_name'];
         $_SESSION['user_id'] = $user['user_id'];
+        $_SESSION['user'] = $user;
         $_SESSION['authorized'] = true;
         $_SESSION['success_message'] = 'Log-in successfully!';
         header("location: ../Homepage/homepage.php");

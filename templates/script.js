@@ -1,22 +1,122 @@
-// Lấy các phần tử cần thiết
-var modal = document.getElementById("postModal");
-var btn = document.getElementById("createPostBtn");
-var span = document.getElementsByClassName("close")[0];
+// Function to show custom alert
+function showCustomAlert(situation, notice) {
+    const alertBox = document.getElementById('custom-alert');
 
-// Mở modal khi nhấn vào "Create new post"
-btn.onclick = function(event) {
-    event.preventDefault();
-    modal.style.display = "block";
-}
+    // Cập nhật nội dung thông báo
+    alertBox.textContent = notice;
 
-// Đóng modal khi nhấn vào dấu "X"
-span.onclick = function() {
-    modal.style.display = "none"; 
-}
+    // Xóa các class cũ để đảm bảo hiệu ứng mới hoạt động
+    alertBox.classList.remove('hide');
+    alertBox.classList.add('show');
 
-// Đóng modal khi nhấn ra ngoài modal
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none"; 
+    // Xử lý màu sắc dựa trên tình huống
+    if (situation === 'success') {
+        alertBox.style.backgroundColor = '#4caf50'; // Màu xanh lá cho thành công
+    } else if (situation === 'fail') {
+        alertBox.style.backgroundColor = '#f44336'; // Màu đỏ cho thất bại
+    } else {
+        alertBox.style.backgroundColor = '#007bff'; // Màu mặc định (xanh dương) cho thông báo khác
     }
+
+    // Sau 3 giây, bắt đầu hiệu ứng kéo lên
+    setTimeout(() => {
+        alertBox.classList.remove('show');
+        alertBox.classList.add('hide');
+    }, 3500); // Thời gian hiển thị alert (3 giây)
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const uploadImageInput = document.getElementById("upload-image");
+    const imagePreview = document.getElementById("image-preview");
+    const previewImg = document.getElementById("preview-img");
+    const uploadButton = document.querySelector(".upload-button");
+    const removeImageButton = document.getElementById("remove-image");
+
+
+    // Khi nhấn vào nút SVG, kích hoạt input file
+    uploadButton.addEventListener("click", () => {
+        uploadImageInput.click();
+    });
+
+    // Hiển thị ảnh xem trước khi người dùng chọn file
+    uploadImageInput.addEventListener("change", function () {
+        const file = this.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                previewImg.src = e.target.result;
+                imagePreview.style.display = "block"; // Hiển thị phần preview
+            };
+            reader.readAsDataURL(file);
+        } else {
+            previewImg.src = "#";
+            imagePreview.style.display = "none"; // Ẩn phần preview nếu không có ảnh
+        }
+    });
+
+    // Khi nhấn nút "x", xóa ảnh và ẩn preview
+    removeImageButton.addEventListener("click", function () {
+        previewImg.src = "#";
+        imagePreview.style.display = "none"; // Ẩn phần preview khi xóa ảnh
+        uploadImageInput.value = ""; // Reset input file
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const pop_uploadImageInput = document.getElementById("pop-upload-image");
+    const pop_imagePreview = document.getElementById("pop-image-preview");
+    const pop_previewImg = document.getElementById("pop-preview-img");
+    const pop_uploadButton = document.querySelector(".pop-upload-button");
+    const pop_removeImageButton = document.getElementById("pop-remove-image");
+
+    // Khi nhấn vào nút SVG, kích hoạt input file
+    pop_uploadButton.addEventListener("click", () => {
+        pop_uploadImageInput.click();
+    });
+
+    // Hiển thị ảnh xem trước khi người dùng chọn file
+    pop_uploadImageInput.addEventListener("change", function () {
+        const file = this.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                pop_previewImg.src = e.target.result;
+                pop_imagePreview.style.display = "block"; // Hiển thị phần preview
+            };
+            reader.readAsDataURL(file);
+        } else {
+            pop_previewImg.src = "#";
+            pop_imagePreview.style.display = "none"; // Ẩn phần preview nếu không có ảnh
+        }
+    });
+
+    // Khi nhấn nút "x", xóa ảnh và ẩn preview
+    pop_removeImageButton.addEventListener("click", function () {
+        pop_previewImg.src = "#";
+        pop_imagePreview.style.display = "none"; // Ẩn phần preview khi xóa ảnh
+        pop_uploadImageInput.value = ""; // Reset input file
+    });
+});
+
+document.addEventListener("input", function (event) {
+    if (event.target.tagName.toLowerCase() === "textarea") {
+        event.target.style.height = "auto"; // Đặt chiều cao về auto
+        event.target.style.height = (event.target.scrollHeight) + "px"; // Cập nhật chiều cao theo chiều cao nội dung
+    }
+});
+
+document.querySelectorAll('.menu-item a').forEach((item, index) => {
+    item.addEventListener('click', function(event) {
+        // Ngăn không cho liên kết dẫn tới trang mới
+        event.preventDefault();
+
+        // Đánh dấu radio tương ứng với menu item đó
+        const radio = document.querySelectorAll('.menu-item input[type="radio"]')[index];
+        radio.checked = true;
+
+        // Nếu menu item có liên kết (href), bạn có thể thay đổi trang
+        if (item.getAttribute('href') !== '#') {
+            window.location.href = item.getAttribute('href');
+        }
+    });
+});

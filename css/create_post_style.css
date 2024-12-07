@@ -1,0 +1,27 @@
+.create-post-content{
+    flex-direction: column;
+    justify-content: center;
+}
+
+.create-caption {
+    width: 100%; 
+    height: auto;  
+    resize: none;  /* Ngừng việc thay đổi kích thước textarea */
+    overflow-y: hidden;  /* Ẩn thanh cuộn dọc */
+}
+
+.upload-button:hover svg, .pop-upload-button:hover svg {
+    color: #007bff; /* Màu khi hover */
+}
+
+.upload-button:hover span, .pop-upload-button:hover span {
+    color: #007bff;
+}
+
+.create-post-footer {
+    margin: 10px 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+

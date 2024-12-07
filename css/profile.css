@@ -1,0 +1,97 @@
+
+/* Profile */
+.profile-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    height: 15vh;
+    background-color: var(--post-bg-color);
+    /* border-bottom: 1px solid var(--post-bg-color); */
+    z-index: 998;
+    padding: 30px 30px 10% 30px;
+    left: 0;
+    right: 0;
+    margin: 80px 600px 10px 600px;
+    box-sizing: border-box;
+}
+
+.profile-header {
+    display: flex;
+    margin-left: 25%;
+}
+
+.profile-avatar {
+    /* background-color: #d3d3d3; */
+    border: 5px var(--post-bg-color) solid;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-info span {
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--text-color);
+    opacity: 1;
+    width: 100%;
+}
+
+.nav-bar-list {
+    list-style-type: none;
+    margin-top: 12%;
+
+}
+
+.nav-bar-list a {
+    text-decoration: none;
+}
+
+.nav-bar-list li {
+    float: left;
+    padding: 10px;
+    margin-right: 20px;
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.nav-bar-list li:hover {
+    background-color: var(--background-color);
+    cursor: pointer;
+}
+
+.profile-display-area {
+    justify-items: center;
+    width: 50vw;
+    /* Chiếm 50% chiều rộng màn hình để post căn giữa, và không lấn sang aside-right */
+    margin-left: 25%;
+    /* Chừa chỗ cho aside-left */
+    margin-right: 25%;
+    /* Chừa chỗ cho aside-right */
+    /* padding-top: 300px; */
+    /* Chừa chỗ cho header */
+    padding-bottom: 50px;
+    /* Chừa chỗ cho footer */
+}
+
+.profile-info-area {
+    justify-items: center;
+    width: 50vw;
+    /* Chiếm 50% chiều rộng màn hình để post căn giữa, và không lấn sang aside-right */
+    margin-left: 25%;
+    /* Chừa chỗ cho aside-left */
+    margin-right: 25%;
+    /* Chừa chỗ cho aside-right */
+    padding-top: 350px;
+    /* Chừa chỗ cho header */
+    padding-bottom: 50px;
+    /* Chừa chỗ cho footer */
+}

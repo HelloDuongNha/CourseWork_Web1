@@ -1,0 +1,189 @@
+aside,
+.other-user {
+    position: fixed;
+    top: 0;
+    width: 15%;
+    height: 100vh;
+    padding-top: 10px;
+    box-sizing: border-box;
+    overflow: auto;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+/* Sidebar trái */
+.aside-left {
+    left: 10%;
+    border-right: var(--border-color) solid 1px;
+}
+.account {
+    display: flex;
+    align-items: center;
+    padding-bottom: 40px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    /* border-bottom: var(--border-color) solid 1px; */
+}
+
+.logo img {
+    height: 160px;
+    width: 300px;
+    object-fit: cover;
+}
+
+.menu {
+    padding-top: 40px;
+    padding-left: 0;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+.menu-item,
+.account {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    text-decoration: none;
+}
+
+.menu-item a,
+.account,
+.menu-item span {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.menu-item a {
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--text-color);
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding:10px 80px;
+    text-decoration: none;
+}
+
+.menu-item img {
+    margin-right: 10px;
+    height: 50px;
+    width: 50px;
+    /* object-fit: cover; */
+    flex-shrink: 0;
+}
+
+.post-footer img {
+    margin-right: 10px;
+    height: 30px;
+    width: 30px;
+    object-fit: cover;
+}
+
+.menu-item a:hover {
+    border-radius: 40px;
+    background-color: var(--hover-color);
+}
+
+/* .menu-item input[type="radio"]:checked + a {
+    opacity: 1;
+    border-radius: 40px;
+    background-color: var(--hover-color);
+} */
+
+
+.setting {
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+}
+
+.extend-list {
+    padding: 10px;
+    width: 280px;
+    /* margin-top: 500px ; */
+    margin-right: 130px;
+    /* border-radius: 20px; */
+}
+
+.account img {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Đẩy phần tử đầu lên trên và phần tử cuối xuống dưới */
+    height: 100%; /* Chiều cao container bao phủ toàn bộ aside hoặc khu vực mong muốn */
+}
+
+/* Đảm bảo rằng mặc định SVG có màu trắng */
+.btn img {
+    filter: brightness(0) invert(1); /* Màu trắng cho SVG */
+    transition: filter 0.3s ease; /* Hiệu ứng chuyển đổi mượt mà */
+}
+
+/* Khi hover vào link, SVG sẽ chuyển sang màu đen */
+.btn:hover img {
+    filter: brightness(0) invert(0); /* Màu đen cho SVG */
+}
+
+
+
+
+/* Sidebar phải */
+.aside-right {
+    right: 10%;
+}
+.other-user {
+    padding-left: 10px;
+    border: var(--border-color) solid 1px;
+    border-radius: 20px;
+    top: 80px;
+}
+.other-user h2 {
+    margin: 10px;
+}
+
+.right-sidebar {
+    display: flex;
+    align-items: center; 
+    gap: 0; 
+    padding: 5px; 
+}
+
+.right-sidebar img {
+    flex-shrink: 0; /* Đảm bảo ảnh không bị thu nhỏ */
+    border-radius: 50%;
+}
+
+.right-sidebar p {
+    margin: 0; 
+    line-height: 1; /* Căn chỉnh nội dung trung tâm hơn */
+    font-size: 14px; 
+    text-align: left; /* Căn trái nội dung */
+}
+
+.menu-item input[type="radio"] {
+    display: none;
+}
+
+

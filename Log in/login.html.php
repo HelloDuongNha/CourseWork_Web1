@@ -1,6 +1,7 @@
 <?php
 // Hiển thị thông báo nếu có lỗi từ session
 session_start();
+session_destroy();
 if (isset($_SESSION['error_message'])) {
     echo "<script>
             window.onload = function() {
@@ -31,7 +32,9 @@ if (isset($_SESSION['success_message'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Login Form</title>
-    <link rel="stylesheet" href="login.css?version=1">
+    <link rel="stylesheet" href="../css/login_style.css">
+    <link rel="stylesheet" href="../css/custom_alert_style.css">
+    <link rel="stylesheet" href="../css/sign_up_modal.css">
 
 </head>
 

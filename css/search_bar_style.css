@@ -1,0 +1,36 @@
+/* Container */
+.search-container {
+    position: fixed;           
+    top: 0;                  
+    right: 230px;
+    width: auto;
+    z-index: 1000;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 16px;
+    
+}
+
+/* Search Box */
+.search-box {
+    position: relative;
+}
+
+/* Input Field */
+.search-input {
+    height: 56px;
+    width: 270px;
+    padding-left: 20px;
+    padding-right: 32px;
+    border: 2px var(--text-color) solid;
+    border-radius: 26px;
+    z-index: 0;
+    outline: none;
+}
+
+.search-input:focus {
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5);
+}
+
+
+

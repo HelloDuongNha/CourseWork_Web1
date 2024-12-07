@@ -1,6 +1,6 @@
 <div class="post-form">
     <div class="post-header">
-        <img class="post-avatar" src="../images/profile.svg" alt="Avatar">
+        <img style="width: 50px; height: 50px;" class="post-avatar" src="../avatar/<?= $_SESSION['user_avt'] ?>">
         <span class="post-username"><?= $_SESSION['username'] ?></span>
     </div>
 
@@ -12,20 +12,21 @@
             </div>
             <!-- Preview ảnh khi đã chọn -->
             <div id="image-preview" style="display: none; position: relative; text-align: center;">
-            <div class="image-background">
-        <img id="preview-img" src="#" alt="Image Preview">
-    </div>
+                <img id="preview-img" src="#" alt="Image Preview">
                 <button class="btn btn-outline-danger" id="remove-image" type="button">&times;</button>
             </div>
-            <div class="post-footer">
+            <div class="create-post-footer" style="margin: 10px 0 20px;">
                 <!-- Nút SVG thay thế cho input file -->
-                <div class="upload-button" style="display: flex; align-items: left; cursor: pointer;">
-                    <img src="../images/add-image.svg" alt="Upload Image" width="32" height="32" style="cursor: pointer;">
-                    <span style="margin-left: 8px;">Upload Image</span>
+                <div class="upload-button">
+                    <img src="../icon/image-upload.png" alt="Upload Image" width="32" height="32" style="cursor: pointer;">
+                    <!-- <span style="margin-left: 8px;">Upload Image</span> -->
                     <input type="file" name="post_image" id="upload-image" accept="image/*" style="display: none;">
                 </div>
             </div>
-            <button style="margin-bottom:20px;" class="btn btn-primary" type="create_post" name="create_post">Post</button>
+            <!-- Nút Post căn sang phải -->
+            <div style="margin-left:86%;">
+                <button style="width:100px;" class="btn btn-primary" type="create_post" name="create_post">Post</button>
+            </div>
         </form>
     </div>
 

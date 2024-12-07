@@ -11,7 +11,7 @@ if (isset($_POST['create_post'])) {
     $post_created_day = date('Y-m-d'); // Giữ lại ngày (nếu cần cho cột cũ)
     $post_created_time = date('H:i:s'); // Lấy giờ
     
-    $last_modified = $post_created_datetime;
+    $last_modified = $post_created_day . ' ' . $post_created_time;  // Cập nhật thời gian chỉnh sửa
 
     // Kiểm tra và xử lý ảnh
     $image_path = NULL; // Mặc định là NULL nếu không có ảnh
@@ -29,32 +29,28 @@ if (isset($_POST['create_post'])) {
 
     // Chuẩn bị câu lệnh SQL để chèn vào bảng posts
     $query = "
-        INSERT INTO posts (
-            post_caption,
-            post_created_day,
-            post_created_time,
-            post_last_modified,
-            user_id,
-            img_path,
-            repost_check,
-            repost_date,
-            repost_caption,
-            repost_user_tag,
-            repost_user_name
-        ) VALUES (
-            :post_caption,
-            :post_created_day,
-            :post_created_time,
-            :post_last_modified,
-            :user_id,
-            :img_path,
-            0,
-            NULL,
-            NULL,
-            NULL,
-            NULL
-        )
-    ";
+    INSERT INTO posts (
+        post_caption,
+        post_created_day,
+        post_created_time,
+        post_last_modified,
+        user_id,
+        img_path,
+        repost_check,
+        repost_date,
+        repost_caption
+    ) VALUES (
+        :post_caption,
+        :post_created_day,
+        :post_created_time,
+        :post_last_modified,
+        :user_id,
+        :img_path,
+        0,  
+        NULL,  
+        NULL   
+    )
+";
 
     $statement = $pdo->prepare($query);
     $statement->bindValue(":post_caption", $post_caption);

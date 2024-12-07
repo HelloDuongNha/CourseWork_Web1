@@ -1,0 +1,81 @@
+/* :root {
+    --primary-color: #000;
+    --hover-color: #333;
+    --background-color: #000;
+    --text-color: #fff;
+    --aside-color: #000;
+} */
+
+:root {
+    --background-color: #150016;
+    --aside-color: #29104A;
+    --post-bg-color: #522C5D;
+    --text-color: #FFE3D8;
+    --header-color: #845162;
+    --border-coler: #E3B6B1;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+	font-weight: 300;
+	font-size: 15px;
+	line-height: 1.7;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    max-width: 1200px;
+}
+
+.logo-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 20px;
+}
+
+h1 {
+    font-size: 50px;
+    margin: 0;
+}
+
+p {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+
+.login-form {
+    width: 100%;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
