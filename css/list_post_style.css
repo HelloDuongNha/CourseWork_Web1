@@ -48,8 +48,28 @@
     margin: 10px 0 10px 10px
 }
 
+/* setup hover for 2 tool in header */
+.icon-button {
+    display: inline;
+    border-radius: 8px; /* Bo viền */
+    padding: 5px;
+    transition: background-color 0.3s, transform 0.3s; /* Chuyển động mượt mà */
+}
 
+.icon-button:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Màu nền khi hover */
+    transform: translateY(-5px); /* Di chuyển hình ảnh lên */
+}
 
+.icon-button img {
+    transition: transform 0.3s; /* Hiệu ứng mượt mà cho hình ảnh */
+}
+
+.icon-button:hover img {
+    transform: translateY(-3px); /* Di chuyển hình ảnh lên khi hover */
+}
+
+/* post detail */
 .post-content,
 .repost-content {
     display: flex;

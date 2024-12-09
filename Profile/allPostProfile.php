@@ -2,11 +2,12 @@
 require "../Log in/check.php";
 include '../includes/Functions.php';
 
+$_SESSION['last_link'] = "../Profile/allPostProfile.php";
 $title = setTitle("User Post");
 $user = GetAllDataUser($pdo, $_SESSION['user_id']);
 $posts = ProfileGetAllPost($pdo, $_SESSION['user_id']);
 $modules = GetAllModule($pdo);
-include "../Homepage/homepage.html.php";
+include "../Homepage/Admin_homepage.html.php";
 $info = ob_get_clean();
 include "profile.html.php";
 // $output = setClean();

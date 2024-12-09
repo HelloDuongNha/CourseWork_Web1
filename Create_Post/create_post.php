@@ -65,7 +65,7 @@ if (isset($_POST['create_post'])) {
     $statement->execute();
     $_SESSION['success_message'] = '+1 post!';
     // Điều hướng sau khi tạo bài viết
-    header("location: ../Homepage/homepage.php");
+    header("Location:" . $_SESSION['last_link']);
     exit();
 }
 $output = ob_get_clean();

@@ -4,7 +4,7 @@ include '../includes/Functions.php';
 
 $title = setTitle("User Post");
 $user = GetAllDataUser($pdo, $_SESSION['user_id']);
-include "../Profile/PostDetail.html.php";
+include "../Profile/ProfileDetail.html.php";
 // $info = ob_get_clean();
 // include "profile.html.php";
 // $output = setClean();

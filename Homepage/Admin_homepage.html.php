@@ -22,13 +22,18 @@ foreach ($posts as $post):
                 </div>
 
                 <!-- tool -->
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <a href="">
+                <div style="display: flex; flex-direction: row; gap:10px;">
+                    <a href="" class="icon-button">
                         <img style="width: 30px; height: 30px;" src="../icon/edit_post.png" alt="edit">
                     </a>
-                    <a href="">
-                        <img style="width: 30px; height: 30px;" src="../icon/delete.png" alt="delete">
-                    </a>
+                    <form action="../Delete_Post/delete_post.php" method="post"
+                        onsubmit="return confirm('Are you sure to delete this Post?');"
+                        class="icon-button">
+                            <input type="hidden" name="delete_post_id" value="<?= $post['post_id'] ?>">
+                            <button type="submit" style="background: none; border: none; padding: 0;" >
+                                <img style="width: 30px; height: 30px;" src="../icon/delete.png" alt="delete">
+                            </button>
+                    </form>
                 </div>
             </div>
 
@@ -76,11 +81,38 @@ foreach ($posts as $post):
     <?php
     } else { ?>
         <div class="repost-form">
-            <div class="repost-header">
-                <img style="width: 40px; height: 40px;" class="post-avatar" src="../avatar/<?= !empty($post['repost_avatar']) ? $post['repost_avatar'] : 'profile.png' ?>" alt="Avatar">
-                <span class="post-username"><?= $post['repost_user_name'] ?></span> -
-                <span class="post-tag">@<?= $post['repost_user_tag'] ?></span> -
-                <span class="post-time"><?= date("d/m/Y", strtotime($post['repost_date'])) ?></span>
+            <div class="post-header" style="display: flex; justify-content: space-between;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <img style="width: 40px; height: 40px;" class="post-avatar" src="../avatar/<?= !empty($post['repost_avatar']) ? $post['repost_avatar'] : 'profile.png' ?>">
+
+                    <!-- user info -->
+                    <div style="display: flex; flex-direction: column;">
+                        <span class="post-username"><?= $post['repost_user_name'] ?></span>
+                        <span class="post-tag">@<?= $post['repost_user_tag'] ?> </span>
+                    </div>
+
+                    <!-- post time -->
+                    <div style="display: flex; gap: 2px; margin-left: 10px;">
+                        <span style="margin-left: 10px;" class="post-time"><?= date("d/m/Y", strtotime($post['repost_date'])) ?></span>
+                        <!-- need to add repost time -->
+                        <!-- <span style="margin-left: 10px;" class="post-time"><?= date("H:i", strtotime($post['post_created_time'])) ?></span>  -->
+                    </div>
+                </div>
+
+                <!-- tool -->
+                <div style="display: flex; flex-direction: row; gap:10px;">
+                    <a href="" class="icon-button">
+                        <img style="width: 30px; height: 30px;" src="../icon/edit_post.png" alt="edit">
+                    </a>
+                    <form action="../Delete_Post/delete_post.php" method="post"
+                        onsubmit="return confirm('Are you sure to delete this Post?');"
+                        class="icon-button">
+                            <input type="hidden" name="delete_post_id" value="<?= $post['post_id'] ?>">
+                            <button type="submit" style="background: none; border: none; padding: 0;" >
+                                <img style="width: 30px; height: 30px;" src="../icon/delete.png" alt="delete">
+                            </button>
+                    </form>
+                </div>
             </div>
 
             <div class="repost-content">
