@@ -6,26 +6,25 @@ include "../includes/DatabaseConnection.php";
 include "../includes/Functions.php";
 
 if (isset($_POST['create_post'])) {
-    $post_caption = $_POST["post_caption"];
+    // Lấy và xử lý giá trị caption
+    $post_caption = trim($_POST["post_caption"]); // Xóa khoảng trắng đầu/cuối
+    $post_caption = htmlspecialchars($post_caption, ENT_QUOTES, 'UTF-8'); // Mã hóa các ký tự đặc biệt
+
+    // Kiểm tra rỗng
+    if (empty($post_caption)) {
+        $_SESSION['error_message'] = 'Post caption cannot be empty!';
+        header('location: ../Homepage/homepage.php'); // Điều hướng về trang trước
+        exit();
+    }
+    
     $user_id = $_SESSION["user_id"];
     $post_created_day = date('Y-m-d'); // Giữ lại ngày (nếu cần cho cột cũ)
     $post_created_time = date('H:i:s'); // Lấy giờ
-    
+    $module = $_POST['module_id'];
     $last_modified = $post_created_day . ' ' . $post_created_time;  // Cập nhật thời gian chỉnh sửa
 
     // Kiểm tra và xử lý ảnh
-    $image_path = NULL; // Mặc định là NULL nếu không có ảnh
-    if (isset($_FILES['post_image']) && $_FILES['post_image']['error'] === 0) {
-        $upload_dir = '../uploaded_imgs/';
-        $filename = basename($_FILES['post_image']['name']);
-        $target_path = $upload_dir . $filename;
-
-        // Lưu file vào thư mục
-        if (move_uploaded_file($_FILES['post_image']['tmp_name'], $target_path)) {
-            // Lưu đường dẫn tương đối để sử dụng trong <img src="">
-            $image_path = $target_path;
-        }
-    }
+    $image_path = CheckUploadImage($_FILES['post_image']);
 
     // Chuẩn bị câu lệnh SQL để chèn vào bảng posts
     $query = "
@@ -38,7 +37,8 @@ if (isset($_POST['create_post'])) {
         img_path,
         repost_check,
         repost_date,
-        repost_caption
+        repost_caption,
+        module_id
     ) VALUES (
         :post_caption,
         :post_created_day,
@@ -48,7 +48,8 @@ if (isset($_POST['create_post'])) {
         :img_path,
         0,  
         NULL,  
-        NULL   
+        NULL,
+        :module
     )
 ";
 
@@ -59,6 +60,7 @@ if (isset($_POST['create_post'])) {
     $statement->bindValue(":post_last_modified", $last_modified);
     $statement->bindValue(":user_id", $user_id);
     $statement->bindValue(":img_path", $image_path); // Gán đường dẫn ảnh (hoặc NULL)
+    $statement->bindValue(":module", $module);
 
     $statement->execute();
     $_SESSION['success_message'] = '+1 post!';

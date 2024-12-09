@@ -32,10 +32,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const uploadButton = document.querySelector(".upload-button");
     const removeImageButton = document.getElementById("remove-image");
 
-
     // Khi nhấn vào nút SVG, kích hoạt input file
-    uploadButton.addEventListener("click", () => {
-        uploadImageInput.click();
+    uploadButton.addEventListener("click", (event) => {
+         uploadImageInput.click(); // Mở file input
     });
 
     // Hiển thị ảnh xem trước khi người dùng chọn file
@@ -44,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (file) {
             const reader = new FileReader();
             reader.onload = function (e) {
-                previewImg.src = e.target.result;
+                previewImg.src = e.target.result; // Hiển thị ảnh chính
                 imagePreview.style.display = "block"; // Hiển thị phần preview
             };
             reader.readAsDataURL(file);
@@ -61,6 +60,8 @@ document.addEventListener("DOMContentLoaded", function () {
         uploadImageInput.value = ""; // Reset input file
     });
 });
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
     const pop_uploadImageInput = document.getElementById("pop-upload-image");
@@ -98,25 +99,35 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.addEventListener("input", function (event) {
-    if (event.target.tagName.toLowerCase() === "textarea") {
-        event.target.style.height = "auto"; // Đặt chiều cao về auto
-        event.target.style.height = (event.target.scrollHeight) + "px"; // Cập nhật chiều cao theo chiều cao nội dung
-    }
-});
+// document.addEventListener("input", function (event) {
+//     if (event.target.tagName.toLowerCase() === "textarea") {
+//         event.target.style.height = "auto"; // Đặt chiều cao về auto
+//         event.target.style.height = (event.target.scrollHeight) + "px"; // Cập nhật chiều cao theo chiều cao nội dung
+//     }
+// });
 
-document.querySelectorAll('.menu-item a').forEach((item, index) => {
-    item.addEventListener('click', function(event) {
-        // Ngăn không cho liên kết dẫn tới trang mới
-        event.preventDefault();
 
-        // Đánh dấu radio tương ứng với menu item đó
-        const radio = document.querySelectorAll('.menu-item input[type="radio"]')[index];
-        radio.checked = true;
+// function check_space(...fields) {
+//     for (let i = 0; i < fields.length; i++) {
+//         const fieldValue = document.getElementsByName(fields[i])[0].value.trim();
+//         if (!fieldValue) {
+//             alert('Please fill in all fields.');
+//             return false;
+//         }
+//     }
+//     return true;
+// }
 
-        // Nếu menu item có liên kết (href), bạn có thể thay đổi trang
-        if (item.getAttribute('href') !== '#') {
-            window.location.href = item.getAttribute('href');
-        }
-    });
-});
+// function check_space(username, usertag, email, gender, dob) {
+//     const username_c = (document.getElementsByName(username)[0].value).trim();
+//     const usertag_c = (document.getElementsByName(usertag)[0].value).trim();
+//     const email_c = (document.getElementsByName(email)[0].value).trim();
+//     const gender_c = (document.getElementsByName(gender)[0].value).trim();
+//     const dob_c = (document.getElementsByName(dob)[0].value).trim();
+
+//     if (!username_c || !usertag_c || !email_c || !gender_c || !dob_c) {
+//         alert('Please fill in all fields.');
+//         return false;
+//     }
+//     return true
+// }

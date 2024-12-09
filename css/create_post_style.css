@@ -1,27 +1,39 @@
-.create-post-content{
-    flex-direction: column;
-    justify-content: center;
-}
-
-.create-caption {
-    width: 100%; 
-    height: auto;  
-    resize: none;  /* Ngừng việc thay đổi kích thước textarea */
-    overflow-y: hidden;  /* Ẩn thanh cuộn dọc */
-}
-
-.upload-button:hover svg, .pop-upload-button:hover svg {
-    color: #007bff; /* Màu khi hover */
-}
-
-.upload-button:hover span, .pop-upload-button:hover span {
-    color: #007bff;
-}
-
-.create-post-footer {
-    margin: 10px 0 20px;
+.post-form form {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;         /* Các phần tử xếp theo cột */
+    gap: 10px;                      /* Khoảng cách giữa các hàng */
+    width: 100%;                    /* Chiếm toàn bộ chiều rộng container */
+}
+
+textarea.create-caption {
+    flex: 1;                        /* Textarea chiếm toàn bộ không gian còn lại */
+    height: 50px;                   /* Chiều cao cố định */
+    resize: none;                   /* Không cho resize */
+    border: 1px solid #ccc;         /* Viền */
+    border-radius: 4px;             /* Bo góc */
+    padding: 5px 10px;              /* Khoảng cách bên trong */
+}
+
+#image-preview {
+    display: flex;                  /* Hiển thị ảnh ở dòng thứ 2 */
+    justify-content: center;        /* Căn giữa nội dung bên trong */
     align-items: center;
+    position: relative;             /* Để định vị nút xóa ảnh */
+    gap: 10px;                      /* Khoảng cách giữa các ảnh (nếu có) */
+}
+
+button.btn-primary {
+    width: 100px;                   /* Chiều rộng nút "Post" */
+    height: 40px;                   /* Chiều cao đồng nhất */
+
+}
+
+.upload-button img {
+    cursor: pointer;                /* Biểu tượng tay khi hover */
+}
+
+button#remove-image {
+    font-size: 16px;                /* Kích thước nút xóa ảnh */
+    color: red;                     /* Màu chữ nút xóa */
 }
 

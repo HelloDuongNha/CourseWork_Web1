@@ -1,7 +1,7 @@
 <?php
 // require_once "../includes/check.php";
 ?>
-
+<div class="profile-info-area" style="margin-left:0; margin-right: 0;">
 <div class="profile-container">
     <div>
         <img style="width: 200px; height: 200px;" class='profile-avatar' src="../avatar/<?= $_SESSION['user_avt'] ?>" />
@@ -11,7 +11,6 @@
             <span style="font-size: 25px;">
                 <?= $_SESSION['username'] ?>
             </span>
-
         </div>
     </div>
     <div class="nav-bar">
@@ -30,8 +29,8 @@
     </div>
 </div>
 
-<div class="profile-info-area" style="margin-left:0%;">
-    <div class="post-form">
+
+    <div class="post-form" style="margin-top: 50px;">
         <div class="post-header">
             <img style="width: 40px; height: 40px;" class="post-avatar" src="../avatar/<?= !empty($user['avatar']) ? $user['avatar'] : 'profile.png' ?>" alt="Avatar">
         </div>
@@ -43,14 +42,14 @@
 
                 <label for="">Author name</label>
                 <input type="text" name="name"
-                    value="<?= $user['username'] ?>" required>
+                    value="<?=$_SESSION['user']['user_name']?>" required>
                 <label for="">Author email</label>
 
         </div>
         <hr>
         <div class="post-footer">
-        <input type="submit" name="edit" value="Edit">
-        </form>
+            <input type="submit" name="edit" value="Edit">
+            </form>
         </div>
     </div>
 </div>

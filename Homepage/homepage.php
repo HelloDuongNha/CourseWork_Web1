@@ -5,10 +5,11 @@ include '../includes/Functions.php';
 
 $title = setTitle("All Public post");
 $posts = GetAllPosts($pdo);
-
-include "homepage.html.php";
+$modules = GetAllModule($pdo);
+include "Admin_homepage.html.php";
 // $output = setClean();
 $output = ob_get_clean();
+
 include '../templates/user_layout.html.php';
 
 

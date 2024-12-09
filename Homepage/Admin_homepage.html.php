@@ -3,15 +3,32 @@ include "../Create_Post/create_post.html.php";
 foreach ($posts as $post):
     if (isset($post['repost_check']) && $post['repost_check'] == 0) { ?>
         <div class="post-form">
-            <div class="post-header">
-                <img style="width: 40px; height: 40px;" class="post-avatar" src="../avatar/<?= !empty($post['main_avatar']) ? $post['main_avatar'] : 'profile.png' ?>" alt="Avatar">
-                <div>
-                    <span class="post-username"><?= $post['main_user_name'] ?></span>
-                    <span class="post-tag">@<?= $post['main_user_tag'] ?> </span>
+            <div class="post-header" style="display: flex; justify-content: space-between;">
+                <!-- <img style="width: 40px; height: 40px;" class="post-avatar" src="../avatar/<?= !empty($post['main_avatar']) ? $post['main_avatar'] : 'profile.png' ?>" alt="Avatar"> -->
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <img style="width: 40px; height: 40px;" class="post-avatar" src="../avatar/<?= !empty($post['main_avatar']) ? $post['main_avatar'] : 'profile.png' ?>" alt="Avatar">
+
+                    <!-- user info -->
+                    <div style="display: flex; flex-direction: column;">
+                        <span class="post-username"><?= $post['main_user_name'] ?></span>
+                        <span class="post-tag">@<?= $post['main_user_tag'] ?> </span>
+                    </div>
+
+                    <!-- post time -->
+                    <div style="display: flex; gap: 2px; margin-left: 10px;">
+                        <span style="margin-left: 10px;" class="post-time"><?= date("d/m/Y", strtotime($post['post_created_day'])) ?></span>
+                        <span style="margin-left: 10px;" class="post-time"><?= date("H:i", strtotime($post['post_created_time'])) ?></span>
+                    </div>
                 </div>
-                <div>
-                    <span style="margin-left: 10px;" class="post-time"><?= date("d/m/Y", strtotime($post['post_created_day'])) ?></span>
-                    <span style="margin-left: 10px;" class="post-time"><?= date("H:i", strtotime($post['post_created_time'])) ?></span>
+
+                <!-- tool -->
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <a href="">
+                        <img style="width: 30px; height: 30px;" src="../icon/edit_post.png" alt="edit">
+                    </a>
+                    <a href="">
+                        <img style="width: 30px; height: 30px;" src="../icon/delete.png" alt="delete">
+                    </a>
                 </div>
             </div>
 
