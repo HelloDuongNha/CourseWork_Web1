@@ -46,7 +46,7 @@
 #remove-image, #pop-remove-image {
     position: absolute;
     top: 10px;
-    right: 10px;
+    right: -10%;
 
     font-size: 30px;
     color: var(--text-color);

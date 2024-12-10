@@ -1,8 +1,8 @@
-<div class="modal fade" id="ProfileModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="ProfileModalLabel" aria-hidden="true">
+<div class="modal fade" id="UserModal_<?= $user['user_id'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="ProfileModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <img style="width: 50px; height: 50px;" class="post-avatar" src="../avatar/<?= $user['avatar'] ?>">
+                <img style="width: 50px; height: 50px;" class="post-avatar" src="../avatar/<?= !empty($user['avatar']) ? $user['avatar'] : 'profile.png' ?>" alt="Avatar">
                 <h2 class="modal-title fs-5" id="postModalLabel"><?= $user['user_name'] ?></h2>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -10,7 +10,8 @@
             <div class="modal-body">
                 <form action="../Edit_Profile/Edit_Profile.php" method="POST" enctype="multipart/form-data">
                     <!-- id -->
-                    <input type="hidden" name="user_id" value="<?=$user['user_id']?>">
+                    <input type="hidden" name="user_id" value="<?= $user['user_id'] ?>">
+                    
                     <!-- full name -->
                     <div class="input-group" style="margin-bottom:16px">
                         <span class="input-group-text">Full name</span>
@@ -19,12 +20,12 @@
                     <!-- tag -->
                     <div class="input-group flex-nowrap" style="margin-bottom:16px">
                         <span class="input-group-text" id="addon-wrapping">@</span>
-                        <input type="text" value="<?= $user['user_tag'] ?>" class="form-control" placeholder="User Tag"  name="usertag" aria-label="Usertag" aria-describedby="addon-wrapping" required>
+                        <input type="text" value="<?= $user['user_tag'] ?>" class="form-control" placeholder="User Tag" name="usertag" aria-label="Usertag" aria-describedby="addon-wrapping" required>
                     </div>
                     <!-- email -->
                     <div class="input-group" style="margin-bottom:16px">
                         <span class="input-group-text">Email</span>
-                        <input type="text" value="<?= $user['user_mail'] ?>" aria-label="Email" placeholder="Email"  name="email" class="form-control" required>
+                        <input type="text" value="<?= $user['user_mail'] ?>" aria-label="Email" placeholder="Email" name="email" class="form-control" required>
                     </div>
 
                     <!-- gender -->

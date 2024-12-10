@@ -13,7 +13,7 @@ $title = setTitle("Delete Post");
         header("Location:" . $_SESSION['last_link']);
         exit;
     } else {
-        $_SESSION['success_message'] = 'can not delete post';
+        $_SESSION['error_message'] = 'can not delete post';
         header("Location:" . $_SESSION['last_link']);
         exit;
     }

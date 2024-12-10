@@ -16,32 +16,38 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <input type="radio" id="menu-item-2" name="menu-item" checked>
+                <input type="radio" id="menu-item-1" name="menu-item">
                     <a class="icon-button" href="../Homepage/homepage.php">
                         <img src="../icon/home.png" alt="Home">Homepage
                     </a>
                 </li>
                 <li class="menu-item">
-                    <input type="radio" id="menu-item-3" name="menu-item">
+                <input type="radio" id="menu-item-1" name="menu-item">
+                    <a class="icon-button" href="../All_users/all_users.php">
+                        <img src="../icon/email.png" alt="contact">All Users
+                    </a>
+                </li>
+                <li class="menu-item">
+                <input type="radio" id="menu-item-1" name="menu-item">
                     <a class="icon-button" href="#">
                         <img src="../icon/email.png" alt="contact">Contact us
                     </a>
                 </li>
                 <li class="menu-item">
-                    <input type="radio" id="menu-item-4" name="menu-item">
+                <input type="radio" id="menu-item-1" name="menu-item">
                     <a class="icon-button" href="#">
                         <img src="../icon/setting.png" alt="setting">Settings
                     </a>
                 </li>
                 <li class="menu-item">
-                    <input type="radio" id="menu-item-5" name="menu-item">
+                <input type="radio" id="menu-item-1" name="menu-item">
                     <a class="icon-button" href="../Log in/logout.php">
                         <img src="../icon/logout.png" alt="logout">Logout
                     </a>
                 </li>
                 <li class="menu-item">
-                    <input type="radio" id="menu-item-6" name="menu-item">
-                    <a class="icon-button" href="#" data-bs-toggle="modal" data-bs-target="#postModal">
+
+                    <a class="icon-button" href="#" data-bs-toggle="modal" data-bs-target="#CreatePostModal">
                         <img src="../icon/edit.png" alt="create"> Create new post
                     </a>
                 </li>

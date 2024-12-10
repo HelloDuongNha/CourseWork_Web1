@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Khi nhấn vào nút SVG, kích hoạt input file
     uploadButton.addEventListener("click", (event) => {
-         uploadImageInput.click(); // Mở file input
+        uploadImageInput.click(); // Mở file input
     });
 
     // Hiển thị ảnh xem trước khi người dùng chọn file
@@ -99,35 +99,32 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// document.addEventListener("input", function (event) {
-//     if (event.target.tagName.toLowerCase() === "textarea") {
-//         event.target.style.height = "auto"; // Đặt chiều cao về auto
-//         event.target.style.height = (event.target.scrollHeight) + "px"; // Cập nhật chiều cao theo chiều cao nội dung
-//     }
-// });
+// 1. Xử lý xóa ảnh cũ
+document.getElementById("delete-old-image-btn").addEventListener("click", function () {
+    const oldImagePathInput = document.getElementById("old-image-path");
+    const deleteExistingImageInput = document.getElementById("delete-existing-image");
 
+    // Đặt giá trị input hidden thành 1 để đánh dấu xóa ảnh cũ
+    deleteExistingImageInput.value = "1";
 
-// function check_space(...fields) {
-//     for (let i = 0; i < fields.length; i++) {
-//         const fieldValue = document.getElementsByName(fields[i])[0].value.trim();
-//         if (!fieldValue) {
-//             alert('Please fill in all fields.');
-//             return false;
-//         }
-//     }
-//     return true;
-// }
+    // Làm trống input của đường dẫn ảnh cũ
+    oldImagePathInput.value = "No image available"; // Thay thế nội dung của trường ảnh cũ
+    oldImagePathInput.setAttribute("readonly", true); // Chỉ đọc
+    oldImagePathInput.classList.add("text-muted"); // Thêm class để làm xám văn bản
+});
 
-// function check_space(username, usertag, email, gender, dob) {
-//     const username_c = (document.getElementsByName(username)[0].value).trim();
-//     const usertag_c = (document.getElementsByName(usertag)[0].value).trim();
-//     const email_c = (document.getElementsByName(email)[0].value).trim();
-//     const gender_c = (document.getElementsByName(gender)[0].value).trim();
-//     const dob_c = (document.getElementsByName(dob)[0].value).trim();
+// 2. Xử lý xóa ảnh mới
+document.getElementById("delete-new-image-btn").addEventListener("click", function () {
+    const newImagePathInput = document.getElementById("new-image-path");
 
-//     if (!username_c || !usertag_c || !email_c || !gender_c || !dob_c) {
-//         alert('Please fill in all fields.');
-//         return false;
-//     }
-//     return true
-// }
+    // Làm trống trường input file để người dùng có thể chọn lại
+    newImagePathInput.value = ""; // Xóa giá trị của input file
+});
+
+// 3. Khi người dùng chọn ảnh mới, kiểm tra sự kiện change
+document.getElementById("new-image-path").addEventListener("change", function () {
+    if (this.files && this.files.length > 0) {
+        console.log("File đã chọn:", this.files[0].name);
+    }
+});
+

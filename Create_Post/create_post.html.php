@@ -8,24 +8,25 @@
             <!-- Cột 2 -->
             <div style="display: flex; flex-direction: column; width: 100%;">
                 <!-- Tool chọn Module (cột 2, hàng 1) -->
-                <div class="module-selection" style="flex-grow: 1;">
-                        <select class="module-option" required="required" name="module_id">
-                            <option value="" disabled="disabled" selected="selected">Select Module</option>
-                            <?php
-                            foreach ($modules as $module) {
-                            ?>
-                                <option value="<?=$module['module_id']?>">
-                                    <?= htmlspecialchars($module['module_name'], ENT_QUOTES, 'UTF-8'); ?>
-                                </option>
-                            <?php }
-                            ?>
-                        </select>
+                <div class="input-group mb-3" style="padding-right: 45px;">
+                    <label class="input-group-text" for="inputGroupSelect01">Module:</label>
+                    <select class="form-select" id="inputGroupSelect01" name="module_id">
+                        <option value="" disabled="disabled" selected="selected">Select Module</option>
+                        <?php
+                        foreach ($modules as $module) {
+                        ?>
+                            <option value="<?= $module['module_id'] ?>">
+                                <?= htmlspecialchars($module['module_name'], ENT_QUOTES, 'UTF-8'); ?>
+                            </option>
+                        <?php }
+                        ?>
+                    </select>
                 </div>
 
                 <!-- Textarea và Nút Upload Image (cột 2, hàng 2) -->
                 <div style="display: flex; align-items: center; gap: 10px;">
                     <textarea class="form-control create-caption" placeholder="What are you thinking about?" name="post_caption" required></textarea>
-                    <div class="upload-button" style="cursor: pointer;">
+                    <div class="upload-button icon-button" style="cursor: pointer;">
                         <img src="../icon/image-upload.png" alt="Upload Image" width="32" height="32">
                         <input type="file" name="post_image" id="upload-image" accept="image/*" style="display: none;">
                     </div>

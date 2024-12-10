@@ -15,7 +15,8 @@ function setClean()
     return $output;
 }
 
-function GetAllModule($pdo) {
+function GetAllModule($pdo)
+{
     $sql = "SELECT * FROM modules";
     $modules = $pdo->query($sql);
     return $modules->fetchAll();
@@ -33,15 +34,19 @@ function GetAllPosts($pdo)
         users_repost.user_name AS repost_user_name,
         users_repost.user_tag AS repost_user_tag,
         users_repost.avatar AS repost_avatar,
-        modules.module_name
+        main_module.module_name AS module_name, 
+        repost_module.module_name AS repost_module_name
     FROM 
         posts
     INNER JOIN 
         users AS users_main 
         ON posts.user_id = users_main.user_id
     INNER JOIN 
-        modules 
-        ON posts.module_id = modules.module_id
+        modules AS main_module 
+        ON posts.module_id = main_module.module_id -- Đổi tên join modules thành main_module
+    LEFT JOIN 
+        modules AS repost_module 
+        ON posts.repost_module_id = repost_module.module_id
     LEFT JOIN 
         users AS users_repost 
         ON posts.repost_user_id = users_repost.user_id
@@ -102,19 +107,24 @@ function ProfileGetAllRepost($pdo, $repost_user_id)
         users_repost.user_name AS repost_user_name,
         users_repost.user_tag AS repost_user_tag,
         users_repost.avatar AS repost_avatar,
-        modules.module_name
+        main_module.module_name AS module_name, 
+        repost_module.module_name AS repost_module_name 
     FROM 
         posts
     INNER JOIN 
         users AS users_main 
         ON posts.user_id = users_main.user_id
     INNER JOIN 
-        modules 
-        ON posts.module_id = modules.module_id
+        modules AS main_module 
+        ON posts.module_id = main_module.module_id -- Đổi tên join modules thành main_module
+    LEFT JOIN 
+        modules AS repost_module 
+        ON posts.repost_module_id = repost_module.module_id
     LEFT JOIN 
         users AS users_repost 
         ON posts.repost_user_id = users_repost.user_id
-    WHERE posts.repost_user_id = :repost_user_id
+    WHERE 
+        posts.repost_user_id = :repost_user_id
     ORDER BY 
         COALESCE(posts.repost_date, CONCAT(posts.post_created_day, ' ', posts.post_created_time)) DESC
     ";
@@ -143,7 +153,8 @@ function GetAllDataUser($pdo, $user_id)
     return $user->fetch(PDO::FETCH_ASSOC);
 }
 
-function CheckUploadImage($file) {
+function CheckUploadImage($file)
+{
     // Kiểm tra và xử lý ảnh
     $image_name = NULL; // Mặc định là NULL nếu không có ảnh
     if (isset($file) && $file['error'] === 0) {
@@ -186,7 +197,7 @@ function CheckUploadImage($file) {
             $counter = 1;
             $file_base = pathinfo($filename, PATHINFO_FILENAME); // Lấy tên file không có đuôi
             $extension = pathinfo($filename, PATHINFO_EXTENSION); // Lấy phần mở rộng file (jpg, png, ...)
-            
+
             // Kiểm tra và thay đổi tên file nếu trùng
             while (file_exists($target_path)) {
                 $filename = $file_base . "($counter)." . $extension; // Tạo tên mới với (counter)
@@ -232,15 +243,12 @@ function updateProfile($pdo, $id, $name, $tag, $email, $gender, $dob, $last)
     query($pdo, $query, $parameters);
 }
 
-// update joke
-function updateJoke($pdo, $id, $text, $author, $category, $date)
+function GetPostDetail($pdo, $post_id)
 {
-    $query = "  UPDATE jokes
-                    SET joke_text = :text,
-                        joke_date = :date,
-                        author_id = :author,
-                        category_id = :category
-                    WHERE joke_id = :id";
-    $parameters = [":text" => $text, ":id" => $id, ":date" => $date, ":author" => $author, ":category" => $category];
-    query($pdo, $query, $parameters);
+    $sql = "SELECT * FROM posts
+    WHERE post_id = :id";
+    $post = $pdo->prepare($sql);
+    $post->bindValue(':id', $post_id);
+    $post->execute();
+    return $post->fetch(PDO::FETCH_ASSOC); //tôi đoán là sẽ dùng fetch này
 }
