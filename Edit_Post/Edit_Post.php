@@ -21,10 +21,9 @@ if (isset($_POST['edit_post'])) {
         exit();
     }
     $module_id = $_POST['module_id'];
-
     $last_modified = date('Y-m-d H:i:s'); // Lấy thời gian hiện tại
 
-    // Lấy đường dẫn ảnh hiện tại của bài viết từ CSDL
+    // Lấy đường dẫn ảnh hiện tại của bài viết từ CSDLff
     $query = "SELECT img_path FROM posts WHERE post_id = :post_id";
     $statement = $pdo->prepare($query);
     $statement->bindValue(":post_id", $post_id);
@@ -39,7 +38,7 @@ if (isset($_POST['edit_post'])) {
 
     // Xóa ảnh cũ nếu người dùng yêu cầu xóa ảnh cũ
     if ($delete_old_image && !empty($old_image_path)) {
-        $old_image_full_path = "../uploaded_imgs/" . $old_image_path;
+        $old_image_full_path = "../images/uploaded_imgs/" . $old_image_path;
         if (file_exists($old_image_full_path)) {
             unlink($old_image_full_path); 
         }

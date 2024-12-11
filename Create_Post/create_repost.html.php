@@ -39,7 +39,7 @@
                         <span class="input-group-text">Caption</span>
                         <textarea
                             class="form-control create-caption"
-                            placeholder="What are you thinking about?"
+                            placeholder="What is your question?"
                             name="repost_caption"
                             style="height: 80px;"
                             required></textarea>

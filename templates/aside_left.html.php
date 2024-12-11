@@ -11,7 +11,7 @@
                 <li class="menu-item">
                     <a class="icon-button" href="../Profile/allPostProfile.php">
                         <img class="post-avatar" src="../images/avatar/<?= $this_user['avatar'] ?>">
-                        <p><?= $_SESSION['user_id'] ?></p>
+                        <p><?= $this_user['user_name'] ?></p>
                     </a>
                 </li>
                 <li class="menu-item">

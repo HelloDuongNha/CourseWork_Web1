@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once '../includes/Functions.php';
 $title = setTitle("All module");
 require "../Log in/check.php";

@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <img style="width: 50px; height: 50px;" class="post-avatar" src="../avatar/<?=$this_user['avatar'] ?>">
+                <img style="width: 50px; height: 50px;" class="post-avatar" src="../images/avatar/<?=$this_user['avatar'] ?>">
                 <h2 class="modal-title fs-5" id="postModalLabel"><?= $this_user['user_name'] ?></h2>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -25,8 +25,8 @@
                         </select>
                     </div>
                     <div class="form-floating">
-                        <textarea class="form-control create-caption" placeholder="What are you thinking about?" name="post_caption" style="height: 80px;" required></textarea>
-                        <label style="color: #000;" for="floatingPostCaption">What are you thinking about?</label>
+                        <textarea class="form-control create-caption" placeholder="What is your question?" name="post_caption" style="height: 80px;" required></textarea>
+                        <label style="color: #000;" for="floatingPostCaption">What is your question?</label>
                     </div>
                     <!-- Preview ảnh khi đã chọn -->
                     <div id="pop-image-preview" style="display: none; position: relative; text-align: center;">

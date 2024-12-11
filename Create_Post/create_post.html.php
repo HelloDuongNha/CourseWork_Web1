@@ -25,7 +25,7 @@
 
                 <!-- Textarea và Nút Upload Image (cột 2, hàng 2) -->
                 <div style="display: flex; align-items: center; gap: 10px;">
-                    <textarea class="form-control create-caption" placeholder="What are you thinking about?" name="post_caption" required></textarea>
+                    <textarea class="form-control create-caption" placeholder="What is your question?" name="post_caption" required></textarea>
                     <div class="upload-button icon-button" style="cursor: pointer;">
                         <img src="../images/icon/image-upload.png" alt="Upload Image" width="32" height="32">
                         <input type="file" name="post_image" id="upload-image" accept="image/*" style="display: none;">

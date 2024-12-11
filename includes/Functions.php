@@ -62,7 +62,7 @@ function GetAllPosts($pdo)
         ON posts.user_id = users_main.user_id
     INNER JOIN 
         modules AS main_module 
-        ON posts.module_id = main_module.module_id -- Đổi tên join modules thành main_module
+        ON posts.module_id = main_module.module_id 
     LEFT JOIN 
         modules AS repost_module 
         ON posts.repost_module_id = repost_module.module_id
@@ -207,21 +207,24 @@ function CheckUploadImage($file, $repo)
         } else {
             $_SESSION['error_message'] = "File is not an image.";
             $uploadOk = 0;
+            
         }
 
         // Kiểm tra file size (Max: 5MB)
         if ($file["size"] > 5000000) {
             $_SESSION['error_message'] = "Sorry, your file is too large.";
             $uploadOk = 0;
+            
         }
 
         // Allow certain file formats
         if (
             $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-            && $imageFileType != "gif"
+            && $imageFileType != "gif" 
         ) {
             $_SESSION['error_message'] = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
             $uploadOk = 0;
+            
         }
 
         // Kiểm tra nếu tất cả các điều kiện hợp lệ
@@ -241,13 +244,14 @@ function CheckUploadImage($file, $repo)
             // Lưu file vào thư mục upload
             if (move_uploaded_file($file['tmp_name'], $target_path)) {
                 $image_name = $filename;  // Trả về tên file đã đổi
+                $_SESSION['success_message'] = '+1 post!';
+                return $image_name;
             } else {
                 $_SESSION['error_message'] = "Sorry, there was an error uploading your file.";
+                exit();
             }
         }
     }
-
-    return $image_name;
 }
 
 // query with bind value

@@ -1,7 +1,8 @@
 <?php
+session_start();
 include_once '../includes/Functions.php';
 $title = setTitle("All Public post");
-require_once "../Log in/check.php";
+// require_once "../Log in/check.php";
 
 
 $_SESSION['last_link'] = "../Admin/all_users.php";

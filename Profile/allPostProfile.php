@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "../Log in/check.php";
 include '../includes/Functions.php';
 

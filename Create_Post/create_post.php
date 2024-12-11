@@ -24,8 +24,8 @@ if (isset($_POST['create_post'])) {
     $last_modified = $post_created_day . ' ' . $post_created_time;  // Cập nhật thời gian chỉnh sửa
 
     // Kiểm tra và xử lý ảnh
-    $image_path = CheckUploadImage($_FILES['post_image'], '../uploaded_imgs/');
-
+    $image_path = CheckUploadImage($_FILES['post_image'], '../images/uploaded_imgs/');
+    
     // Chuẩn bị câu lệnh SQL để chèn vào bảng posts
     $query = "
     INSERT INTO posts (
@@ -59,11 +59,10 @@ if (isset($_POST['create_post'])) {
     $statement->bindValue(":post_created_time", $post_created_time);
     $statement->bindValue(":post_last_modified", $last_modified);
     $statement->bindValue(":user_id", $user_id);
-    $statement->bindValue(":img_path", $image_path); // Gán đường dẫn ảnh (hoặc NULL)
+    $statement->bindValue(":img_path", $image_path); 
     $statement->bindValue(":module", $module);
 
     $statement->execute();
-    $_SESSION['success_message'] = '+1 post!';
     // Điều hướng sau khi tạo bài viết
     header("Location:" . $_SESSION['last_link']);
     exit();
