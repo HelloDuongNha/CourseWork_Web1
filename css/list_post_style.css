@@ -50,7 +50,7 @@
 
 /* setup hover for 2 tool in header */
 .icon-button {
-    display: inline;
+    /* display: inline-block; */
     border-radius: 8px; /* Bo viền */
     padding: 5px;
     transition: background-color 0.3s, transform 0.3s; /* Chuyển động mượt mà */
@@ -119,7 +119,7 @@
     max-width: 700px;
     height: 100%;
     border: var(--text-color) solid 1px;
-    border-radius: 0 0 27px 27px;
+    /* border-radius: 0 0 27px 27px; */
 }
 
 

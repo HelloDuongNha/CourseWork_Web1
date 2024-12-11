@@ -35,13 +35,13 @@ if (isset($_POST['edit_post'])) {
     $delete_old_image = isset($_POST['delete_existing_image']) && $_POST['delete_existing_image'] === '1';
 
     // Kiểm tra xem người dùng có upload ảnh mới hay không
-    $new_image_path = CheckUploadImage($_FILES['new_post_image']); // Hàm này trả về đường dẫn ảnh mới nếu upload thành công, nếu không thì trả về NULL
+    $new_image_path = CheckUploadImage($_FILES['new_post_image'], '../images/uploaded_imgs/'); // Hàm này trả về đường dẫn ảnh mới nếu upload thành công, nếu không thì trả về NULL
 
     // Xóa ảnh cũ nếu người dùng yêu cầu xóa ảnh cũ
     if ($delete_old_image && !empty($old_image_path)) {
         $old_image_full_path = "../uploaded_imgs/" . $old_image_path;
         if (file_exists($old_image_full_path)) {
-            unlink($old_image_full_path); // Xóa ảnh cũ
+            unlink($old_image_full_path); 
         }
         $old_image_path = NULL; // Đặt ảnh cũ về NULL
     }

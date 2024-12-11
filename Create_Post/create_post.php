@@ -13,7 +13,7 @@ if (isset($_POST['create_post'])) {
     // Kiểm tra rỗng
     if (empty($post_caption)) {
         $_SESSION['error_message'] = 'Post caption cannot be empty!';
-        header('location: ../Homepage/homepage.php'); // Điều hướng về trang trước
+        header('location:' . $_SESSION['last_link']); // Điều hướng về trang trước
         exit();
     }
     
@@ -24,7 +24,7 @@ if (isset($_POST['create_post'])) {
     $last_modified = $post_created_day . ' ' . $post_created_time;  // Cập nhật thời gian chỉnh sửa
 
     // Kiểm tra và xử lý ảnh
-    $image_path = CheckUploadImage($_FILES['post_image']);
+    $image_path = CheckUploadImage($_FILES['post_image'], '../uploaded_imgs/');
 
     // Chuẩn bị câu lệnh SQL để chèn vào bảng posts
     $query = "

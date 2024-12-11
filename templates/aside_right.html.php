@@ -22,7 +22,7 @@
                 $users = GetAllUser($pdo);
                 foreach ($users as $user): ?>
                     <li class="menu-item right-sidebar">
-                        <img style="height: 30px; width: 30px;" src="../avatar/<?= !empty($user['avatar']) ? $user['avatar'] : 'profile.png' ?>" alt="avatar">
+                        <img style="height: 30px; width: 30px;" src="../images/avatar/<?= !empty($user['avatar']) ? $user['avatar'] : 'profile.png' ?>" alt="avatar">
                         <p>@<?= $user['user_tag'] ?></p>
                     </li>
                 <?php endforeach; ?>

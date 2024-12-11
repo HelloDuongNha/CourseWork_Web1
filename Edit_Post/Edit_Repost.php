@@ -5,22 +5,22 @@ include "../includes/Functions.php";
 
 if (isset($_POST['edit_post'])) {
     $post_id = $_POST['post_id']; // Lấy ID bài viết cần chỉnh sửa
-    $post_caption = trim($_POST["post_caption"]); // Lấy caption
-    $post_caption = htmlspecialchars($post_caption, ENT_QUOTES, 'UTF-8'); // Mã hóa ký tự đặc biệt
+    $repost_caption = trim($_POST["repost_caption"]); // Lấy caption
+    $repost_caption = htmlspecialchars($repost_caption, ENT_QUOTES, 'UTF-8'); // Mã hóa ký tự đặc biệt
 
-    if (empty($post_caption)) {
+    if (empty($repost_caption)) {
         $_SESSION['error_message'] = 'Post caption cannot be empty!';
         header('Location: ../Homepage/homepage.php');
         exit();
     }
 
 
-    if (!isset($_POST['module_id']) || empty($_POST['module_id'])) {
+    if (!isset($_POST['repost_module_id']) || empty($_POST['repost_module_id'])) {
         $_SESSION['error_message'] = 'Please select a module!';
         header('Location: ../Homepage/homepage.php');
         exit();
     }
-    $module_id = $_POST['module_id'];
+    $repost_module_id = $_POST['repost_module_id'];
 
     $last_modified = date('Y-m-d H:i:s'); // Lấy thời gian hiện tại
 
@@ -35,11 +35,11 @@ if (isset($_POST['edit_post'])) {
     $delete_old_image = isset($_POST['delete_existing_image']) && $_POST['delete_existing_image'] === '1';
 
     // Kiểm tra xem người dùng có upload ảnh mới hay không
-    $new_image_path = CheckUploadImage($_FILES['new_post_image']); // Hàm này trả về đường dẫn ảnh mới nếu upload thành công, nếu không thì trả về NULL
+    $new_image_path = CheckUploadImage($_FILES['new_post_image'], '../images/uploaded_imgs/'); 
 
     // Xóa ảnh cũ nếu người dùng yêu cầu xóa ảnh cũ
     if ($delete_old_image && !empty($old_image_path)) {
-        $old_image_full_path = "../uploaded_imgs/" . $old_image_path;
+        $old_image_full_path = "../images/uploaded_imgs/" . $old_image_path;
         if (file_exists($old_image_full_path)) {
             unlink($old_image_full_path); // Xóa ảnh cũ
         }
@@ -64,14 +64,14 @@ if (isset($_POST['edit_post'])) {
         SET 
             post_caption = :post_caption, 
             post_last_modified = :post_last_modified, 
-            Repost_module_id = :repost_module_id, 
+            repost_module_id = :repost_module_id, 
             img_path = :img_path 
         WHERE 
             post_id = :post_id
     ";
 
     $statement = $pdo->prepare($query);
-    $statement->bindValue(":post_caption", $post_caption);
+    $statement->bindValue(":post_caption", $repost_caption);
     $statement->bindValue(":post_last_modified", $last_modified);
     $statement->bindValue(":repost_module_id", $repost_module_id);
     $statement->bindValue(":img_path", $image_path);

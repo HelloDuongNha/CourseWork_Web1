@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <img style="width: 50px; height: 50px;" class="post-avatar" src="../avatar/<?= !empty($user['avatar']) ? $user['avatar'] : 'profile.png' ?>" alt="Avatar">
+                <img style="width: 50px; height: 50px;" class="post-avatar" src="../iamges/avatar/<?= !empty($user['avatar']) ? $user['avatar'] : 'profile.png' ?>" alt="Avatar">
                 <h2 class="modal-title fs-5" id="postModalLabel"><?= $user['user_name'] ?></h2>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -20,13 +20,11 @@
                     <!-- tag -->
                     <div class="input-group flex-nowrap" style="margin-bottom:16px">
                         <span class="input-group-text" id="addon-wrapping">@</span>
-                        <input type="text" value="<?= $user['user_tag'] ?>" class="form-control" placeholder="User Tag" name="usertag" aria-label="Usertag" aria-describedby="addon-wrapping" required>
-                    </div>
+                        <input type="text" value="<?= $user['user_tag'] ?>" class="form-control" placeholder="User Tag" name="usertag" aria-label="Usertag" aria-describedby="addon-wrapping" required <?= ($user['user_id'] == 1) ? 'readonly disabled' : '' ?>>                    </div>
                     <!-- email -->
                     <div class="input-group" style="margin-bottom:16px">
                         <span class="input-group-text">Email</span>
-                        <input type="text" value="<?= $user['user_mail'] ?>" aria-label="Email" placeholder="Email" name="email" class="form-control" required>
-                    </div>
+                        <input type="text" value="<?= $user['user_mail'] ?>" aria-label="Email" placeholder="Email" name="email" class="form-control" required <?= ($user['user_id'] == 1) ? 'readonly disabled' : '' ?>>                    </div>
 
                     <!-- gender -->
                     <div class="row mb-3">

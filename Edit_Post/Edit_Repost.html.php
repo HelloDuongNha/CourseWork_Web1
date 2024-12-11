@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <img style="width: 50px; height: 50px;" class="post-avatar" src="../avatar/<?= $_SESSION['user_avt'] ?>">
+                <img style="width: 50px; height: 50px;" class="post-avatar" src="../images/avatar/<?= $_SESSION['user_avt'] ?>">
                 <h2 class="modal-title fs-5" id="postModalLabel"><?= $_SESSION['username'] ?></h2>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -13,7 +13,7 @@
                     <!-- Tool chọn Module (cột 2, hàng 1) -->
                     <div class="input-group mb-3">
                         <label class="input-group-text" for="inputGroupSelect01">Module:</label>
-                        <select class="form-select" id="inputGroupSelect01" name="module_id">
+                        <select class="form-select" id="inputGroupSelect01" name="repost_module_id">
                             <option value="" disabled="disabled" selected="selected">Select Module</option>
                             <?php
                             foreach ($modules as $module) {
@@ -33,11 +33,35 @@
                         <textarea
                             class="form-control create-caption"
                             placeholder="What are you thinking about?"
-                            name="post_caption"
+                            name="repost_caption"
                             style="height: 80px;"
-                            required><?= $post['post_caption'] ?></textarea>
+                            required><?= $post['repost_caption'] ?></textarea>
                     </div>
+                    <div class="post-inside">
+                    <div class="image-container">
+                        <?php
+                        if (isset($post['img_path']) && $post['img_path'] != "") { ?>
+                            <img class="back-post-image" src="../images/uploaded_imgs/<?= $post['img_path'] ?>" alt="">
+                            <img class="post-image" src="../images/uploaded_imgs/<?= $post['img_path'] ?>" alt="" ?>
+                        <?php } ?>
+                    </div>
+                    <div class="repost-header">
+                        <img style="width: 40px; height: 40px;" class="post-avatar" src="../images/avatar/<?= !empty($post['main_avatar']) ? $post['main_avatar'] : 'profile.png' ?>" alt="Avatar">
+                        <!-- user info -->
+                        <div style="display: flex; flex-direction: column;">
+                            <span class="post-username"><?= $post['main_user_name'] ?></span>
+                            <span class="post-tag">@<?= $post['main_user_tag'] ?> </span>
+                        </div>
 
+                        <!-- post time -->
+                        <div style="display: flex; gap: 2px; margin-left: 10px;">
+                            <span style="margin-left: 10px;" class="post-time"><?= date("d/m/Y", strtotime($post['post_created_day'])) ?></span>
+                            <span style="margin-left: 10px;" class="post-time"><?= date("H:i", strtotime($post['post_created_time'])) ?></span>
+                        </div>
+                    </div>
+                    <p style="padding: 0 10px"><strong>Module: <?= $post['module_name'] ?></strong></p>
+                    <p style="padding: 0 10px"><?= $post['post_caption'] ?></p>
+                </div>
 
                     <!-- close and svae button -->
                     <div class="modal-footer">

@@ -56,7 +56,7 @@
                                 id="delete-old-image-btn-<?= $post['post_id'] ?>"
                                 class="btn btn-danger delete-old-image-btn"
                                 data-post-id="<?= $post['post_id'] ?>">
-                                <img style="width: 30px; height: 30px;" src="../icon/delete.png" alt="delete">
+                                <img style="width: 30px; height: 30px;" src="../images/icon/delete.png" alt="delete">
                             </button>
                         </div>
                     </div>
@@ -77,7 +77,7 @@
                                 id="delete-new-image-btn-<?= $post['post_id'] ?>"
                                 class="btn btn-danger delete-new-image-btn"
                                 data-post-id="<?= $post['post_id'] ?>">
-                                <img style="width: 30px; height: 30px;" src="../icon/delete.png" alt="delete">
+                                <img style="width: 30px; height: 30px;" src="../images/icon/delete.png" alt="delete">
                             </button>
                         </div>
                     </div>
@@ -99,7 +99,6 @@
                                     // Làm trống trường input và cho biết không có ảnh cũ
                                     oldImagePathInput.value = "No image available";
                                     oldImagePathInput.setAttribute("readonly", true);
-                                    oldImagePathInput.classList.add("text-muted");
                                 });
                             });
 

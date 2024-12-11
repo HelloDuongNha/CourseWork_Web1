@@ -2,8 +2,8 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <img style="width: 50px; height: 50px;" class="post-avatar" src="../avatar/<?= $_SESSION['user_avt'] ?>">
-                <h2 class="modal-title fs-5" id="postModalLabel"><?= $_SESSION['username'] ?></h2>
+                <img style="width: 50px; height: 50px;" class="post-avatar" src="../avatar/<?=$this_user['avatar'] ?>">
+                <h2 class="modal-title fs-5" id="postModalLabel"><?= $this_user['user_name'] ?></h2>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -12,7 +12,7 @@
                     <!-- Tool chọn Module (cột 2, hàng 1) -->
                     <div class="input-group mb-3" >
                         <label class="input-group-text" for="inputGroupSelect01">Module:</label>
-                        <select class="form-select" id="inputGroupSelect01" name="module_id">
+                        <select class="form-select" id="inputGroupSelect01" name="module_id" required>
                             <option value="" disabled="disabled" selected="selected">Select Module</option>
                             <?php
                             foreach ($modules as $module) {
@@ -38,7 +38,7 @@
                     <div class="post-footer">
                         <!-- Nút SVG thay thế cho input file -->
                         <div class="pop-upload-button input-group mb-3" style="display: flex; align-items: left; cursor: pointer;">
-                            <img src="../icon/image-upload.png" alt="Upload Image" width="32" height="32" style="cursor: pointer;">
+                            <img src="../images/icon/image-upload.png" alt="Upload Image" width="32" height="32" style="cursor: pointer;">
                             <!-- <span style="margin-left: 8px;">Upload Image</span> -->
                             <input type="file" name="post_image" id="pop-upload-image" accept="image/*" style="display: none;">
                         </div>
