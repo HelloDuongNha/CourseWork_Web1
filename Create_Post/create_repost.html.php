@@ -2,8 +2,8 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <img style="width: 50px; height: 50px;" class="post-avatar" src="../avatar/<?= $user['avatar'] ?>">
-                <h2 class="modal-title fs-5" id="postModalLabel"><?= $user['user_name'] ?></h2>
+                <img style="width: 50px; height: 50px;" class="post-avatar" src="../images/avatar/<?= !empty($this_user['avatar']) ? $this_user['avatar'] : 'profile.png' ?>">
+                <h2 class="modal-title fs-5" id="postModalLabel"><?= $this_user['user_name'] ?></h2>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -48,8 +48,8 @@
                         <div class="image-container">
                             <?php
                             if (isset($post['img_path']) && $post['img_path'] != "") { ?>
-                                <img class="back-post-image" src="../uploaded_imgs/<?= $post['img_path'] ?>" alt="">
-                                <img class="post-image" src="../uploaded_imgs/<?= $post['img_path'] ?>" alt="" ?>
+                                <img class="back-post-image" src="../images/uploaded_imgs/<?= $post['img_path'] ?>" alt="">
+                                <img class="post-image" src="../images/uploaded_imgs/<?= $post['img_path'] ?>" alt="" ?>
                             <?php } ?>
                         </div>
                         <div class="repost-header">

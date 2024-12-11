@@ -104,7 +104,7 @@ function ProfileGetAllPost($pdo, $user_id)
         ON posts.repost_user_id = users_repost.user_id
     WHERE posts.user_id = :user_id and posts.repost_check = 0
     ORDER BY 
-        COALESCE(posts.repost_date, CONCAT(posts.post_created_day, ' ', posts.post_created_time)) DESC
+        posts.post_id DESC
     ";
 
     // Execute SQL and fetch results
@@ -145,7 +145,7 @@ function ProfileGetAllRepost($pdo, $repost_user_id)
     WHERE 
         posts.repost_user_id = :repost_user_id
     ORDER BY 
-        COALESCE(posts.repost_date, CONCAT(posts.post_created_day, ' ', posts.post_created_time)) DESC
+        posts.post_id DESC
     ";
 
     // Execute SQL and fetch results
@@ -207,24 +207,21 @@ function CheckUploadImage($file, $repo)
         } else {
             $_SESSION['error_message'] = "File is not an image.";
             $uploadOk = 0;
-            
         }
 
         // Kiểm tra file size (Max: 5MB)
         if ($file["size"] > 5000000) {
             $_SESSION['error_message'] = "Sorry, your file is too large.";
             $uploadOk = 0;
-            
         }
 
         // Allow certain file formats
         if (
             $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-            && $imageFileType != "gif" 
+            && $imageFileType != "gif"
         ) {
             $_SESSION['error_message'] = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
             $uploadOk = 0;
-            
         }
 
         // Kiểm tra nếu tất cả các điều kiện hợp lệ
@@ -327,4 +324,21 @@ function sendMailTo($mail, $email, $name, $title, $message)
     $mail->Body = '<p> User: ' . $name . " is sending u a message: <br>" . $message . '</p>';
     //Send mail
     $mail->send();
+}
+
+function getRepostCount( $pdo, $post_id)
+{
+
+    // Prepare the SQL query to count reposts for the given post_id
+    $query = "SELECT COUNT(*) AS repost_count 
+                  FROM posts 
+                  WHERE original_post_id = :post_id AND repost_check = 1";
+
+    $statement = $pdo->prepare($query);
+    $statement->bindValue(":post_id", $post_id);
+    $statement->execute();
+
+    // Fetch the count result
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+    return $result['repost_count'] ?? 0; // Return count or 0 if not found
 }

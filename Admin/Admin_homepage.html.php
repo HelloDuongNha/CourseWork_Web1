@@ -83,7 +83,7 @@ foreach ($posts as $post):
                 <div class="share">
                     <a class="menu-item" href="#" data-bs-toggle="modal" data-bs-target="#CreateRepostModal_<?= $post['post_id'] ?>" style="text-decoration:none;">
                         <img src="../images/icon/repost.png" alt="Home">
-                        <span>repost</span>
+                        <span><?=getRepostCount($pdo, $post['post_id'])?></span>
                     </a>
                 </div>
                 <div class="bookmark">
@@ -194,7 +194,7 @@ foreach ($posts as $post):
                 <div class="share">
                 <a class="menu-item" href="#" data-bs-toggle="modal" data-bs-target="#CreateRepostModal_<?= $post['post_id'] ?>" style="text-decoration:none;">
                         <img src="../images/icon/repost.png" alt="Home">
-                        <span>repost</span>
+                        <span><?=getRepostCount($pdo, $post['post_id'])?></span>
                     </a>
                 </div>
 

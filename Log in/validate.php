@@ -16,7 +16,7 @@ if (isset($_POST['login'])) {
 
     try {
         // Query the database to check user credentials
-        $query = "SELECT * FROM users WHERE user_name = :username OR user_mail = :username";
+        $query = "SELECT * FROM users WHERE user_tag = :username OR user_mail = :username";
         $statement = $pdo->prepare($query);
         $statement->bindValue(":username", $username);
         $statement->execute();

@@ -10,8 +10,8 @@
             <ul>
                 <li class="menu-item">
                     <a class="icon-button" href="../Profile/allPostProfile.php">
-                        <img class="post-avatar" src="../images/avatar/<?= $this_user['avatar'] ?>">
-                        <p><?= $this_user['user_name'] ?></p>
+                        <img class="post-avatar" src="../images/avatar/<?= !empty($this_user['avatar']) ? $this_user['avatar'] : 'profile.png' ?>">
+                        <p>Profile: <?= $this_user['user_name'] ?></p>
                     </a>
                 </li>
                 <li class="menu-item">
@@ -37,7 +37,7 @@
                 </li>
                 <li class="menu-item">
                     <a class="icon-button" href="../modules/all_module.php">
-                        <img src="../images/icon/email.png" alt="contact">All Module
+                        <img src="../images/icon/module.png" alt="contact">All Module
                     </a>
                 </li>
                 <li class="menu-item">

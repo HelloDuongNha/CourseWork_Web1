@@ -5,10 +5,10 @@ $title = setTitle("All Public post");
 // require "../Log in/check.php";
 
 
-$_SESSION['last_link'] = "../All_users/all_users.php";
+$_SESSION['last_link'] = "../All_users/User_all_users.php";
 $users = GetAllUser($pdo);
 $this_user = GetAllDataUser($pdo, $_SESSION['user_id']);
-include "user_all_users.html.php";
+include "user_all_users.html.php";  
 // $output = setClean();
 $output = ob_get_clean();
 

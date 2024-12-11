@@ -3,7 +3,7 @@
         <!-- Hàng 1: Avatar, Tool Select Module -->
         <div style="display: flex; gap: 10px;">
             <!-- Avatar (chiếm cả hàng 1 và hàng 2 của cột 1) -->
-            <img style="width: 100px; height: 100px; border-radius: 50%; flex-shrink: 0;" src="../images/avatar/<?= $user['avatar'] ?>" alt="Avatar">
+            <img style="width: 100px; height: 100px;" class="post-avatar" src="../images/avatar/<?= !empty($this_user['avatar']) ? $this_user['avatar'] : 'profile.png' ?>">
 
             <!-- Cột 2 -->
             <div style="display: flex; flex-direction: column; width: 100%;">

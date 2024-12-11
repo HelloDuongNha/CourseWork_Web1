@@ -4,7 +4,7 @@
 <div class="profile-display-area">
     <div class="profile-container">
         <div>
-            <img style="width: 200px; height: 200px; top: -50px; margin-top: 50px;" class='profile-avatar' src="../images/avatar/<?= $user['avatar'] ?>" />
+            <img style="width: 200px; height: 200px; top: -50px; margin-top: 50px;" class='profile-avatar' src="../images/avatar/<?= !empty($this_user['avatar']) ? $this_user['avatar'] : 'profile.png' ?>">
         </div>
         <div style="cursor: pointer;">
             <!-- Ảnh đại diện mà khi click sẽ kích hoạt input file -->
@@ -68,9 +68,9 @@
                 <p>0</p>
             </div>
         </div>
-        <div class="nav-bar">
+        <div class="nav-bar" style="padding: px 5px;">
             <ul class="nav-bar-list">
-                <hr>
+                <hr style="margin-bottom: 0;">
                 <li>
                     <a href="../Profile/allPostProfile.php">All Posts</a>
                 </li>

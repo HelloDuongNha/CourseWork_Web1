@@ -34,7 +34,7 @@ if (isset($_SESSION['success_message'])) {
     <title>Login Form</title>
     <link rel="stylesheet" href="../css/login_style.css">
     <link rel="stylesheet" href="../css/custom_alert_style.css">
-    <link rel="stylesheet" href="../css/sign_up_modal.css">
+    <link rel="stylesheet" href="../css/sign_up_modal.css?version=1">
 
 </head>
 

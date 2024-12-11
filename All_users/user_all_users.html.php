@@ -9,7 +9,7 @@ foreach ($users as $user) { ?>
     <div class="profile-display-area" style="margin: 0;">
         <div class="profile-container">
             <div>
-                <img style="width: 200px; height: 200px;" class="profile-avatar" src="../avatar/<?= !empty($user['avatar']) ? $user['avatar'] : 'profile.png' ?>" alt="Avatar">
+                <img style="width: 200px; height: 200px;" class="profile-avatar" src="../images/avatar/<?= !empty($user['avatar']) ? $user['avatar'] : 'profile.png' ?>" alt="Avatar">
             </div>
             <div class="profile-header">
                 <div style="display: flex; justify-content: space-between; margin-top:20px;">
@@ -42,7 +42,7 @@ foreach ($users as $user) { ?>
                     <?php if ($user['user_id'] == 1): ?>
                         <p>
                             <a class="icon-button" href="#" data-bs-toggle="modal" data-bs-target="#ContactUserModal_<?= $user['user_id'] ?>">
-                                <img style="width: 20px; height: 20px;" src="../icon/email.png" alt="contact"><?= $user['user_mail'] ?>
+                                <img style="width: 20px; height: 20px;" src="../images/icon/email.png" alt="contact"><?= $user['user_mail'] ?>
                             </a>
                         </p>
                     <?php else: ?>

@@ -25,7 +25,7 @@ if (isset($_SESSION['success_message'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/user.css?version=5">
+    <link rel="stylesheet" href="../css/user.css?version=7">
 
     <link rel="stylesheet" href="../css/aside_style.css?version=4">
     <link rel="stylesheet" href="../css/create_post_modal_style.css?version=2">
@@ -64,7 +64,7 @@ if (isset($_SESSION['success_message'])) {
     <?php include "../templates/aside_right.html.php"; ?>
 
     <!-- Footer -->
-    <footer>Đây là footer</footer>
+    <footer style="color: black;">This is footer</footer>
 
     <!-- javascript functions -->
     <script src="../templates/script.js"></script>

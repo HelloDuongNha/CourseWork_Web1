@@ -5,7 +5,7 @@ $title = setTitle("All Public post");
 // require_once "../Log in/check.php";
 
 
-$_SESSION['last_link'] = "../Admin/all_users.php";
+$_SESSION['last_link'] = "../Admin/Admin_all_users.php";
 $users = GetAllUser($pdo);
 $this_user = GetAllDataUser($pdo, $_SESSION['user_id']);
 include "admin_all_users.html.php";
