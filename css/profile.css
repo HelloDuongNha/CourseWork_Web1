@@ -25,29 +25,18 @@
 .profile-display-area {
     justify-items: center;
     width: 50vw;
-    /* Chiếm 50% chiều rộng màn hình để post căn giữa, và không lấn sang aside-right */
     margin-left: 25%;
-    /* Chừa chỗ cho aside-left */
     margin-right: 25%;
-    /* Chừa chỗ cho aside-right */
-    /* padding-top: 300px; */
-    /* Chừa chỗ cho header */
     padding-bottom: 50px;
-    /* Chừa chỗ cho footer */
 }
 
 .profile-info-area {
     justify-items: center;
     width: 50vw;
-    /* Chiếm 50% chiều rộng màn hình để post căn giữa, và không lấn sang aside-right */
     margin-left: 25%;
-    /* Chừa chỗ cho aside-left */
     margin-right: 25%;
-    /* Chừa chỗ cho aside-right */
     padding-top: 10px;
-    /* Chừa chỗ cho header */
     padding-bottom: 50px;
-    /* Chừa chỗ cho footer */
 }
 
 .profile-header {
@@ -60,30 +49,22 @@
     margin-top: 0;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
-    /* Chia thành 3 cột */
     gap: 20px;
-    /* Khoảng cách giữa các cột */
     color: var(--text-color);
-    /* Màu chữ */
     background-color: var(--post-bg-color);
-    /* Màu nền */
     padding: 20px;
-    /* Khoảng cách bên trong */
 }
 
 .profile-column {
     display: flex;
     flex-direction: column;
-    /* Mỗi cột có 2 dòng */
 }
 
 .profile-column p {
     margin: 0;
-    /* Khoảng cách giữa các dòng trong cột */
 }
 
 .profile-avatar {
-    /* background-color: #d3d3d3; */
     border: 5px #075CE6 solid;
     border-radius: 50%;
     position: absolute;

@@ -2,27 +2,27 @@
 function showCustomAlert(situation, notice) {
     const alertBox = document.getElementById('custom-alert');
 
-    // Cập nhật nội dung thông báo
+    // Update the alert content
     alertBox.textContent = notice;
 
-    // Xóa các class cũ để đảm bảo hiệu ứng mới hoạt động
+    // Remove old classes to ensure the new effect works
     alertBox.classList.remove('hide');
     alertBox.classList.add('show');
 
-    // Xử lý màu sắc dựa trên tình huống
+    // Handle color based on the situation
     if (situation === 'success') {
-        alertBox.style.backgroundColor = '#4caf50'; // Màu xanh lá cho thành công
+        alertBox.style.backgroundColor = '#4caf50'; // Green for success
     } else if (situation === 'fail') {
-        alertBox.style.backgroundColor = '#f44336'; // Màu đỏ cho thất bại
+        alertBox.style.backgroundColor = '#f44336'; // Red for failure
     } else {
-        alertBox.style.backgroundColor = '#007bff'; // Màu mặc định (xanh dương) cho thông báo khác
+        alertBox.style.backgroundColor = '#007bff'; // Default blue for other notifications
     }
 
-    // Sau 3 giây, bắt đầu hiệu ứng kéo lên
+    // After 3 seconds, start the hide animation
     setTimeout(() => {
         alertBox.classList.remove('show');
         alertBox.classList.add('hide');
-    }, 3500); // Thời gian hiển thị alert (3 giây)
+    }, 3500); // Alert display duration (3 seconds)
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -32,36 +32,34 @@ document.addEventListener("DOMContentLoaded", function () {
     const uploadButton = document.querySelector(".upload-button");
     const removeImageButton = document.getElementById("remove-image");
 
-    // Khi nhấn vào nút SVG, kích hoạt input file
+    // Trigger file input when clicking the SVG button
     uploadButton.addEventListener("click", (event) => {
-        uploadImageInput.click(); // Mở file input
+        uploadImageInput.click(); // Open file input
     });
 
-    // Hiển thị ảnh xem trước khi người dùng chọn file
+    // Display the preview image when the user selects a file
     uploadImageInput.addEventListener("change", function () {
         const file = this.files[0];
         if (file) {
             const reader = new FileReader();
             reader.onload = function (e) {
-                previewImg.src = e.target.result; // Hiển thị ảnh chính
-                imagePreview.style.display = "block"; // Hiển thị phần preview
+                previewImg.src = e.target.result; // Display the selected image
+                imagePreview.style.display = "block"; // Show the preview section
             };
             reader.readAsDataURL(file);
         } else {
             previewImg.src = "#";
-            imagePreview.style.display = "none"; // Ẩn phần preview nếu không có ảnh
+            imagePreview.style.display = "none"; // Hide the preview if no image is selected
         }
     });
 
-    // Khi nhấn nút "x", xóa ảnh và ẩn preview
+    // Remove the image and hide the preview when the "x" button is clicked
     removeImageButton.addEventListener("click", function () {
         previewImg.src = "#";
-        imagePreview.style.display = "none"; // Ẩn phần preview khi xóa ảnh
-        uploadImageInput.value = ""; // Reset input file
+        imagePreview.style.display = "none"; // Hide the preview when removing the image
+        uploadImageInput.value = ""; // Reset file input
     });
 });
-
-
 
 document.addEventListener("DOMContentLoaded", function () {
     const pop_uploadImageInput = document.getElementById("pop-upload-image");
@@ -70,61 +68,32 @@ document.addEventListener("DOMContentLoaded", function () {
     const pop_uploadButton = document.querySelector(".pop-upload-button");
     const pop_removeImageButton = document.getElementById("pop-remove-image");
 
-    // Khi nhấn vào nút SVG, kích hoạt input file
+    // Trigger file input when clicking the SVG button
     pop_uploadButton.addEventListener("click", () => {
         pop_uploadImageInput.click();
     });
 
-    // Hiển thị ảnh xem trước khi người dùng chọn file
+    // Display the preview image when the user selects a file
     pop_uploadImageInput.addEventListener("change", function () {
         const file = this.files[0];
         if (file) {
             const reader = new FileReader();
             reader.onload = function (e) {
                 pop_previewImg.src = e.target.result;
-                pop_imagePreview.style.display = "block"; // Hiển thị phần preview
+                pop_imagePreview.style.display = "block"; // Show the preview section
             };
             reader.readAsDataURL(file);
         } else {
             pop_previewImg.src = "#";
-            pop_imagePreview.style.display = "none"; // Ẩn phần preview nếu không có ảnh
+            pop_imagePreview.style.display = "none"; // Hide the preview if no image is selected
         }
     });
 
-    // Khi nhấn nút "x", xóa ảnh và ẩn preview
+    // Remove the image and hide the preview when the "x" button is clicked
     pop_removeImageButton.addEventListener("click", function () {
         pop_previewImg.src = "#";
-        pop_imagePreview.style.display = "none"; // Ẩn phần preview khi xóa ảnh
-        pop_uploadImageInput.value = ""; // Reset input file
+        pop_imagePreview.style.display = "none"; // Hide the preview when removing the image
+        pop_uploadImageInput.value = ""; // Reset file input
     });
-});
-
-// 1. Xử lý xóa ảnh cũ
-document.getElementById("delete-old-image-btn").addEventListener("click", function () {
-    const oldImagePathInput = document.getElementById("old-image-path");
-    const deleteExistingImageInput = document.getElementById("delete-existing-image");
-
-    // Đặt giá trị input hidden thành 1 để đánh dấu xóa ảnh cũ
-    deleteExistingImageInput.value = "1";
-
-    // Làm trống input của đường dẫn ảnh cũ
-    oldImagePathInput.value = "No image available"; // Thay thế nội dung của trường ảnh cũ
-    oldImagePathInput.setAttribute("readonly", true); // Chỉ đọc
-    oldImagePathInput.classList.add("text-muted"); // Thêm class để làm xám văn bản
-});
-
-// 2. Xử lý xóa ảnh mới
-document.getElementById("delete-new-image-btn").addEventListener("click", function () {
-    const newImagePathInput = document.getElementById("new-image-path");
-
-    // Làm trống trường input file để người dùng có thể chọn lại
-    newImagePathInput.value = ""; // Xóa giá trị của input file
-});
-
-// 3. Khi người dùng chọn ảnh mới, kiểm tra sự kiện change
-document.getElementById("new-image-path").addEventListener("change", function () {
-    if (this.files && this.files.length > 0) {
-        console.log("File đã chọn:", this.files[0].name);
-    }
 });
 

@@ -9,7 +9,6 @@
     margin-bottom: 50px;
     width: 750px;
     min-height: 100px;
-    /* aspect-ratio: 16 / 8; */
 }
 
 .image-container {
@@ -17,8 +16,7 @@
     position: relative;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Ensures no overflow if the image is larger */
-    /* border-radius: 26px 26px 0 0; */
+    overflow: hidden;
     width: 100%;
     max-height:100%;
 }
@@ -50,23 +48,23 @@
 
 /* setup hover for 2 tool in header */
 .icon-button {
-    /* display: inline-block; */
-    border-radius: 8px; /* Bo viền */
-    padding: 5px;
-    transition: background-color 0.3s, transform 0.3s; /* Chuyển động mượt mà */
+    border-radius: 8px;
+    padding: 0 10px;
+    transition: background-color 0.3s, transform 0.3s;
+    height: 40px;
 }
 
 .icon-button:hover {
-    background-color: rgba(0, 0, 0, 0.1); /* Màu nền khi hover */
-    transform: translateY(-5px); /* Di chuyển hình ảnh lên */
+    background-color: rgba(0, 0, 0, 0.1); 
+    transform: translateY(-5px);
 }
 
 .icon-button img {
-    transition: transform 0.3s; /* Hiệu ứng mượt mà cho hình ảnh */
+    transition: transform 0.3s; 
 }
 
 .icon-button:hover img {
-    transform: translateY(-3px); /* Di chuyển hình ảnh lên khi hover */
+    transform: translateY(-3px);
 }
 
 /* post detail */
@@ -74,11 +72,8 @@
 .repost-content {
     display: flex;
     flex-direction: column;
-    /* Chuyển hướng flex thành dọc */
     align-items: center;
-    /* Căn giữa theo chiều ngang */
     justify-content: center;
-    /* Căn giữa theo chiều dọc */
 }
 
 .post-avatar {
@@ -108,7 +103,7 @@
 
 .post-content p,
 .repost-content p {
-    align-self: flex-start; /* Đưa <p> về bên trái */
+    align-self: flex-start;
     resize: none;
     margin: 10px;
 }
@@ -119,13 +114,11 @@
     max-width: 700px;
     height: 100%;
     border: var(--text-color) solid 1px;
-    /* border-radius: 0 0 27px 27px; */
 }
 
 
 .post-content p {
     font-size: 24px;
-    /* font-weight: bold; */
     margin-top: 10px;
 }
 

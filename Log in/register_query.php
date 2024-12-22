@@ -3,7 +3,7 @@ session_start();
 require_once '../includes/DatabaseConnection.php';
 
 if (isset($_POST['register_btn'])) {
-    // Làm sạch dữ liệu đầu vào
+    // clean input
     $username = trim(strip_tags(htmlspecialchars($_POST['username'])));
     $usertag = trim(strip_tags(htmlspecialchars($_POST['usertag'])));
     $dob = trim(strip_tags(htmlspecialchars($_POST['dob'])));
@@ -11,22 +11,23 @@ if (isset($_POST['register_btn'])) {
     $email = trim(strip_tags(htmlspecialchars($_POST['email'])));
     $password = trim(strip_tags(htmlspecialchars($_POST['password'])));
     $confirm_password = trim(strip_tags(htmlspecialchars($_POST['confirm_password'])));
+    $created_day = date('Y-m-d');
 
-    // Kiểm tra nếu có trường nào trống
+    // empty check
     if ($username == "" || $usertag == "" || $dob == "" || $gender == "" || $email == "" || $password == "" || $confirm_password == "") {
         $_SESSION['error_message'] = 'Please fill in all fields!';
         header('location: login.html.php');
         exit();
     }
 
-    // Kiểm tra mật khẩu và xác nhận mật khẩu có trùng khớp không
+    // Check if the pw is the same with cf pw or note
     if ($password !== $confirm_password) {
         $_SESSION['error_message'] = 'Please check your password or confirm password again!';
         header('location: login.html.php');
         exit();
     }
 
-    // Kiểm tra nếu user_tag đã tồn tại trong cơ sở dữ liệu
+    // Check if the usertag already exists in the database
     $query = "SELECT * FROM users WHERE user_tag = :usertag";
     $statement = $pdo->prepare($query);
     $statement->bindValue(":usertag", $usertag);
@@ -39,7 +40,7 @@ if (isset($_POST['register_btn'])) {
         exit();
     }
 
-    // Kiểm tra nếu user_mail đã tồn tại trong cơ sở dữ liệu
+    // Check if the user mail already exists in the database
     $query = "SELECT * FROM users WHERE user_mail = :mail";
     $statement = $pdo->prepare($query);
     $statement->bindValue(":mail", $email);
@@ -52,12 +53,11 @@ if (isset($_POST['register_btn'])) {
         exit();
     }
 
-    // Mã hóa mật khẩu
+    // md5
     $password = md5($password);
-    $created_day = date('Y-m-d');
+
 
     try {
-        // Insert query để lưu thông tin người dùng vào database
         $query = "	INSERT INTO users (user_name, user_tag, user_dob, user_gender, user_mail, account_created_day, password) 
                 	VALUES(:name, :tag, :dob, :gender, :mail, :cd, :pw)";
         $statement = $pdo->prepare($query);
@@ -71,7 +71,6 @@ if (isset($_POST['register_btn'])) {
         
         $statement->execute();
         
-        // Sau khi đăng ký thành công, chuyển hướng về trang đăng nhập
         $_SESSION['success_message'] = 'Registration successful! Please log in.';
         header('location: login.html.php');
         exit();

@@ -30,23 +30,17 @@ body {
     --hover-color: #E5E7EA;
 }
 
-/* Layout chính */
 .container {
     display: flex;
     /* align-items: center; */
     justify-items: center;
     justify-content: center;
     width: 50vw;
-    /* Chiếm 50% chiều rộng màn hình để post căn giữa, và không lấn sang aside-right */
     margin-left: 25%;
-    /* Chừa chỗ cho aside-left */
     margin-right: 25%;
-    /* Chừa chỗ cho aside-right */
     padding-bottom: 50px;
-    /* Chừa chỗ cho footer */
 }
 
-/* Nội dung chính */
 .content {
     /* left: 25%; */
     /* padding-top: 20px; */

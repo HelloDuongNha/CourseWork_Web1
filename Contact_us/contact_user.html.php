@@ -28,7 +28,7 @@
                     <!-- text -->
                     <div class="form-floating">
                         <textarea class="form-control create-caption" placeholder="What are you thinking about?" name="message" style="height: 80px;" required></textarea>
-                        <label style="color: #000;" for="floatingPostCaption">What do you want to send to admin?</label>
+                        <label style="color: #000;" for="floatingPostCaption">What do you want to send to this user?</label>
                     </div>
 
                     <div class="post-footer">

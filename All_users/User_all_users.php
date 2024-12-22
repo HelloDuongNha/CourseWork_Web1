@@ -5,9 +5,12 @@ $title = setTitle("All Public post");
 // require "../Log in/check.php";
 
 
+$this_user = GetAllDataUser($pdo, $_SESSION['user_id']);
+include "../ChangePassword/ChangePW.html.php";
+
 $_SESSION['last_link'] = "../All_users/User_all_users.php";
 $users = GetAllUser($pdo);
-$this_user = GetAllDataUser($pdo, $_SESSION['user_id']);
+// $this_user = GetAllDataUser($pdo, $_SESSION['user_id']);
 include "user_all_users.html.php";  
 // $output = setClean();
 $output = ob_get_clean();

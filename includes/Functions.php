@@ -284,7 +284,7 @@ function GetPostDetail($pdo, $post_id)
     $post = $pdo->prepare($sql);
     $post->bindValue(':id', $post_id);
     $post->execute();
-    return $post->fetch(PDO::FETCH_ASSOC); //tôi đoán là sẽ dùng fetch này
+    return $post->fetch(PDO::FETCH_ASSOC);
 }
 
 function getModuleIdByName($pdo, $module_name)
@@ -341,4 +341,35 @@ function getRepostCount( $pdo, $post_id)
     // Fetch the count result
     $result = $statement->fetch(PDO::FETCH_ASSOC);
     return $result['repost_count'] ?? 0; // Return count or 0 if not found
+}
+
+
+function DeleteAvt($pdo, $user_id) {
+    $query = "SELECT avatar FROM users WHERE user_id = :user_id";
+    $statement = $pdo->prepare($query);
+    $statement->bindValue(":user_id", $user_id);
+    $statement->execute();
+    $old_avt_path = $statement->fetchColumn();
+
+    if (!empty($old_avt_path) && $old_avt_path != "profile.png") {
+        $old_avt_full_path = "../images/avatar/" . $old_avt_path;
+        if (file_exists($old_avt_full_path)) {
+            unlink($old_avt_full_path);
+        } else {
+            $_SESSION['error_message'] = "Image is not existed or it could be deleted before";
+        }
+    }
+}
+
+function SetAvtDefault($pdo, $user_id) {
+    $new_avt_path = "profile.png";
+    $sql = "UPDATE users
+        SET avatar = :avatar
+        WHERE user_id = :id";
+    $statement = $pdo->prepare($sql);
+    $statement->bindValue(':avatar', $new_avt_path);
+    $statement->bindValue(':id', $user_id);
+    $statement->execute();
+    // $_SESSION['success_message'] = "delete avt successfully, your avt has been set to default";
+
 }

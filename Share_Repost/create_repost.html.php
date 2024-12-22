@@ -18,7 +18,7 @@
                     <input type="hidden" name="repost_user_id" value="<?= $user['user_id'] ?>">
                     <input type="hidden" name="post_img" value="<?= $post['img_path'] ?>">
                     <input type="hidden" name="post_module_name" value="<?= $post['module_name'] ?>">
-                    <!-- Tool chọn Module (cột 2, hàng 1) -->
+                    <!-- Module -->
                     <div class="input-group mb-3">
                         <label class="input-group-text" for="inputGroupSelect01">Module:</label>
                         <select class="form-select" id="inputGroupSelect01" name="repost_module_id" required>

@@ -1,16 +1,12 @@
-/* CSS cho Modal */
 #postModal {
-    /* background-color: rgba(0, 0, 0, 0.4); */
     position: absolute;
     padding-top: 100px;
 }
 
-/* Nội dung modal */
 .modal-content {
     background-color: var(--post-bg-color);
 }
 
-/* Dấu "X" để đóng modal */
 .close {
     color: #aaa;
     float: right;
@@ -37,9 +33,9 @@
 #preview-img, #pop-preview-img  {
     position: relative;
     z-index: 2;
-    max-width: 90%;  /* Đảm bảo ảnh không vượt quá 90% chiều rộng của background */
-    max-height: 90%; /* Đảm bảo ảnh không vượt quá 90% chiều cao của background */
-    object-fit: contain; /* Giữ tỉ lệ ảnh */
+    max-width: 90%;
+    max-height: 90%; 
+    object-fit: contain; 
     border-radius: 8px;
 }
 
@@ -47,11 +43,10 @@
     position: absolute;
     top: 10px;
     right: -10%;
-
     font-size: 30px;
     color: var(--text-color);
     cursor: pointer;
-    z-index: 3; /* Đảm bảo nút x nằm trên cùng */
+    z-index: 3;
     width: 40px;
     height: 40px;
     display: flex;

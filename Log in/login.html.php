@@ -49,7 +49,7 @@ if (isset($_SESSION['success_message'])) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <!-- Form đăng ký -->
+                    <!-- Form register-->
                     <form action="register_query.php" method="POST">
                         <div class="row mb-3">
                             <label for="username" class="col-sm-2 col-form-label align-right">Username</label>
@@ -130,7 +130,7 @@ if (isset($_SESSION['success_message'])) {
 
     <div class="container">
         <div class="logo-section">
-            <img src="../images/2022-Greenwich-White-Eng.png" alt="Logo">
+            <img style="width:700px; height:350px; object-fit:contain;" src="../images/Greenwich-Logo.webp" alt="Logo">
         </div>
         <div class="form-section">
             <h1>Join today
@@ -160,40 +160,34 @@ if (isset($_SESSION['success_message'])) {
         </div>
 
         <script>
-            // Hạn chế ngày trong lịch không được lớn hơn ngày hôm nay
             document.getElementById('calendar_input').addEventListener('input', function() {
-                const today = new Date().toISOString().split('T')[0]; // Lấy ngày hôm nay
+                const today = new Date().toISOString().split('T')[0]; 
                 if (this.value > today) {
                     alert("You cannot select a date in the future.");
-                    this.value = ''; // Reset giá trị nếu chọn ngày không hợp lệ
+                    this.value = ''; 
                 }
             });
 
-            // Function to show custom alert
+
             function showCustomAlert(situation, notice) {
                 const alertBox = document.getElementById('custom-alert');
 
-                // Cập nhật nội dung thông báo
                 alertBox.textContent = notice;
-
-                // Xóa các class cũ để đảm bảo hiệu ứng mới hoạt động
                 alertBox.classList.remove('hide');
                 alertBox.classList.add('show');
 
-                // Xử lý màu sắc dựa trên tình huống
                 if (situation === 'success') {
-                    alertBox.style.backgroundColor = '#4caf50'; // Màu xanh lá cho thành công
+                    alertBox.style.backgroundColor = '#4caf50';
                 } else if (situation === 'fail') {
-                    alertBox.style.backgroundColor = '#f44336'; // Màu đỏ cho thất bại
+                    alertBox.style.backgroundColor = '#f44336'; 
                 } else {
-                    alertBox.style.backgroundColor = '#007bff'; // Màu mặc định (xanh dương) cho thông báo khác
+                    alertBox.style.backgroundColor = '#007bff'; 
                 }
 
-                // Sau 3 giây, bắt đầu hiệu ứng kéo lên
                 setTimeout(() => {
                     alertBox.classList.remove('show');
                     alertBox.classList.add('hide');
-                }, 3500); // Thời gian hiển thị alert (3 giây)
+                }, 3500);
             }
         </script>
     </div>

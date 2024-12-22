@@ -6,14 +6,12 @@ include "../includes/DatabaseConnection.php";
 include "../includes/Functions.php";
 
 if (isset($_POST['create_post'])) {
-    // Lấy và xử lý giá trị caption
-    $repost_caption = trim($_POST["repost_caption"]); // Xóa khoảng trắng đầu/cuối
-    $repost_caption = htmlspecialchars($repost_caption, ENT_QUOTES, 'UTF-8'); // Mã hóa các ký tự đặc biệt
+    $repost_caption = trim($_POST["repost_caption"]);
+    $repost_caption = htmlspecialchars($repost_caption, ENT_QUOTES, 'UTF-8');
 
-    // Kiểm tra rỗng
     if (empty($repost_caption)) {
         $_SESSION['error_message'] = 'Post caption cannot be empty!';
-        header('location:' . $_SESSION['last_link']); // Điều hướng về trang trước
+        header('location:' . $_SESSION['last_link']);
         exit();
     }
     
@@ -33,12 +31,10 @@ if (isset($_POST['create_post'])) {
     $repost_module_id = $_POST['repost_module_id'];
     $repost_caption = $_POST['repost_caption'];
     $repost_user_id = $_POST["repost_user_id"];
-    $repost_created_day = date('Y-m-d'); // Giữ lại ngày (nếu cần cho cột cũ)
+    $repost_created_day = date('Y-m-d'); 
     $repost_created_time = date('H:i:s');
-    $last_modified = $post_created_day ;  // Cập nhật thời gian chỉnh sửa
+    $last_modified = $post_created_day ;
 
-
-    // Chuẩn bị câu lệnh SQL để chèn vào bảng posts
     $query = "
     INSERT INTO posts (
         post_caption,
@@ -90,7 +86,6 @@ if (isset($_POST['create_post'])) {
 
     $statement->execute();
     $_SESSION['success_message'] = '+1 repost!';
-    // Điều hướng sau khi tạo bài viết
     header("Location:" . $_SESSION['last_link']);
     exit();
 }

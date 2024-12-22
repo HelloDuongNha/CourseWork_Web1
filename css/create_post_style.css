@@ -1,39 +1,38 @@
 .post-form form {
     display: flex;
-    flex-direction: column;         /* Các phần tử xếp theo cột */
-    gap: 10px;                      /* Khoảng cách giữa các hàng */
-    width: 100%;                    /* Chiếm toàn bộ chiều rộng container */
+    flex-direction: column;        
+    gap: 10px;                    
+    width: 100%;                 
 }
 
 textarea.create-caption {
-    flex: 1;                        /* Textarea chiếm toàn bộ không gian còn lại */
-    height: 50px;                   /* Chiều cao cố định */
-    resize: none;                   /* Không cho resize */
-    border: 1px solid #ccc;         /* Viền */
-    border-radius: 4px;             /* Bo góc */
-    padding: 5px 10px;              /* Khoảng cách bên trong */
+    flex: 1;
+    height: 50px;
+    resize: none;                
+    border: 1px solid #ccc;       
+    border-radius: 4px;          
+    padding: 5px 10px;           
 }
 
 #image-preview {
-    display: flex;                  /* Hiển thị ảnh ở dòng thứ 2 */
-    justify-content: center;        /* Căn giữa nội dung bên trong */
+    display: flex;
+    justify-content: center;
     align-items: center;
-    position: relative;             /* Để định vị nút xóa ảnh */
-    gap: 10px;                      /* Khoảng cách giữa các ảnh (nếu có) */
+    position: relative;
+    gap: 10px;
 }
 
 button.btn-primary {
-    width: 100px;                   /* Chiều rộng nút "Post" */
-    height: 40px;                   /* Chiều cao đồng nhất */
-
+    width: 100px;
+    height: 40px;
 }
 
 .upload-button img {
-    cursor: pointer;                /* Biểu tượng tay khi hover */
+    cursor: pointer;
 }
 
 button#remove-image {
-    font-size: 16px;                /* Kích thước nút xóa ảnh */
-    color: red;                     /* Màu chữ nút xóa */
+    font-size: 16px;
+    color: red;
 }
 

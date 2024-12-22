@@ -10,7 +10,6 @@
             <div class="modal-body">
                 <form action="../Edit_Post/Edit_Post.php" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="post_id" value="<?= $post['post_id'] ?>">
-                    <!-- Tool chọn Module (cột 2, hàng 1) -->
                     <div class="input-group mb-3">
                         <label class="input-group-text" for="inputGroupSelect01">Module:</label>
                         <select class="form-select" id="inputGroupSelect01" name="module_id">
@@ -84,31 +83,29 @@
 
 
                     <script>
-                        // Đợi toàn bộ nội dung trang tải
                         window.addEventListener("DOMContentLoaded", function() {
-                            // 1. Xóa ảnh cũ
                             document.querySelectorAll('.delete-old-image-btn').forEach(function(button) {
                                 button.addEventListener('click', function() {
                                     const postId = this.getAttribute('data-post-id');
                                     const oldImagePathInput = document.getElementById(`old-image-path-${postId}`);
                                     const deleteExistingImageInput = document.getElementById(`delete-existing-image-${postId}`);
-
-                                    // Đặt giá trị của input ẩn thành 1 để cho server biết cần xóa ảnh cũ
+                                    
+                                    // if delelte -> value=1
                                     deleteExistingImageInput.value = "1";
 
-                                    // Làm trống trường input và cho biết không có ảnh cũ
+                                    // update the input after delete
                                     oldImagePathInput.value = "No image available";
                                     oldImagePathInput.setAttribute("readonly", true);
                                 });
                             });
 
-                            // 2. Xóa ảnh mới
+                            // 2. delete new img
                             document.querySelectorAll('.delete-new-image-btn').forEach(function(button) {
                                 button.addEventListener('click', function() {
                                     const postId = this.getAttribute('data-post-id');
                                     const newImagePathInput = document.getElementById(`new-image-path-${postId}`);
 
-                                    // Làm trống giá trị của input file
+                                    // clear the value input:file img
                                     newImagePathInput.value = "";
                                 });
                             });

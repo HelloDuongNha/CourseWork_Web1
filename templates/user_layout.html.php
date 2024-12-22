@@ -27,11 +27,11 @@ if (isset($_SESSION['success_message'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/user.css?version=7">
 
-    <link rel="stylesheet" href="../css/aside_style.css?version=4">
+    <link rel="stylesheet" href="../css/aside_style.css?version5">
     <link rel="stylesheet" href="../css/create_post_modal_style.css?version=2">
     <link rel="stylesheet" href="../css/create_post_style.css?version=2">
-    <link rel="stylesheet" href="../css/custom_alert_style.css">
-    <link rel="stylesheet" href="../css/list_post_style.css?version=2">
+    <link rel="stylesheet" href="../css/custom_alert_style.css?version=1">
+    <link rel="stylesheet" href="../css/list_post_style.css?version=3">
     <link rel="stylesheet" href="../css/search_bar_style.css?version=2">
     <link rel="stylesheet" href="../css/profile.css?version=2">
 
@@ -40,17 +40,18 @@ if (isset($_SESSION['success_message'])) {
 
 <body>
     <!-- alert -->
-    <div id="custom-alert" class="alert alert-success" role="alert">Đây là thông báo tùy chỉnh với hiệu ứng rơi xuống và kéo lên!</div>
+    <div id="custom-alert">This is alert</div>
+
     <!-- Modal -->
     <?php 
     include "../Create_Post/create_post_modal.html.php"; 
     include "../Edit_Profile/Edit_Profile.html.php";
     include "../Edit_Post/Edit_Post.html.php";
     include "../Contact_us/contact.html.php";
-    
+    include "../ChangePassword/ChangePW.html.php";
     ?>
 
-    <!-- Sidebar trái -->
+    <!-- Sidebar left -->
     <?php include "../templates/aside_left.html.php"; ?>
 
     <!-- Nội dung chính -->
@@ -60,7 +61,7 @@ if (isset($_SESSION['success_message'])) {
         </main>
     </div>
 
-    <!-- Sidebar phải -->
+    <!-- Sidebar right -->
     <?php include "../templates/aside_right.html.php"; ?>
 
     <!-- Footer -->

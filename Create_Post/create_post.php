@@ -6,27 +6,23 @@ include "../includes/DatabaseConnection.php";
 include "../includes/Functions.php";
 
 if (isset($_POST['create_post'])) {
-    // Lấy và xử lý giá trị caption
-    $post_caption = trim($_POST["post_caption"]); // Xóa khoảng trắng đầu/cuối
-    $post_caption = htmlspecialchars($post_caption, ENT_QUOTES, 'UTF-8'); // Mã hóa các ký tự đặc biệt
+    $post_caption = trim($_POST["post_caption"]); 
+    $post_caption = htmlspecialchars($post_caption, ENT_QUOTES, 'UTF-8'); 
 
-    // Kiểm tra rỗng
     if (empty($post_caption)) {
         $_SESSION['error_message'] = 'Post caption cannot be empty!';
-        header('location:' . $_SESSION['last_link']); // Điều hướng về trang trước
+        header('location:' . $_SESSION['last_link']);
         exit();
     }
     
     $user_id = $_SESSION["user_id"];
-    $post_created_day = date('Y-m-d'); // Giữ lại ngày (nếu cần cho cột cũ)
-    $post_created_time = date('H:i:s'); // Lấy giờ
+    $post_created_day = date('Y-m-d');
+    $post_created_time = date('H:i:s'); 
     $module = $_POST['module_id'];
-    $last_modified = $post_created_day . ' ' . $post_created_time;  // Cập nhật thời gian chỉnh sửa
+    $last_modified = $post_created_day . ' ' . $post_created_time; 
 
-    // Kiểm tra và xử lý ảnh
     $image_path = CheckUploadImage($_FILES['post_image'], '../images/uploaded_imgs/');
     
-    // Chuẩn bị câu lệnh SQL để chèn vào bảng posts
     $query = "
     INSERT INTO posts (
         post_caption,
@@ -63,7 +59,7 @@ if (isset($_POST['create_post'])) {
     $statement->bindValue(":module", $module);
 
     $statement->execute();
-    // Điều hướng sau khi tạo bài viết
+    $_SESSION['success_message'] = '+1 post';
     header("Location:" . $_SESSION['last_link']);
     exit();
 }

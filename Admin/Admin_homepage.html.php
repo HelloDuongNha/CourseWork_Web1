@@ -83,7 +83,7 @@ foreach ($posts as $post):
                 <div class="share">
                     <a class="menu-item" href="#" data-bs-toggle="modal" data-bs-target="#CreateRepostModal_<?= $post['post_id'] ?>" style="text-decoration:none;">
                         <img src="../images/icon/repost.png" alt="Home">
-                        <span><?=getRepostCount($pdo, $post['post_id'])?></span>
+                        <span><?= getRepostCount($pdo, $post['post_id']) ?></span>
                     </a>
                 </div>
                 <div class="bookmark">
@@ -119,14 +119,16 @@ foreach ($posts as $post):
                 <!-- tool -->
                 <div style="display: flex; flex-direction: row; gap:10px;">
                     <!-- edit -->
-                    <button
-                        type="button"
-                        style="background: none; border: none; padding: 0;"
-                        data-bs-toggle="modal"
-                        data-bs-target="#EditRepostModal_<?= $post['post_id'] ?>"
-                        data-post-id="<?= $post['post_id'] ?>">
-                        <img style="width: 30px; height: 30px;" src="../images/icon/edit_post.png" alt="edit">
-                    </button>
+                    <div class="icon-button">
+                        <button
+                            type="button"
+                            style="background: none; border: none; padding: 0;"
+                            data-bs-toggle="modal"
+                            data-bs-target="#EditRepostModal_<?= $post['post_id'] ?>"
+                            data-post-id="<?= $post['post_id'] ?>">
+                            <img style="width: 30px; height: 30px;" src="../images/icon/edit_post.png" alt="edit">
+                        </button>
+                    </div>
 
                     <!-- modal for that post -->
                     <?php
@@ -153,7 +155,7 @@ foreach ($posts as $post):
                     <div class="image-container">
                         <?php
                         if (isset($post['img_path']) && $post['img_path'] != "") { ?>
-                            <img class="back-post-image" src="../images/uploaded_imgs/<?= $post['img_path'] ?>" >
+                            <img class="back-post-image" src="../images/uploaded_imgs/<?= $post['img_path'] ?>">
                             <img class="post-image" src="../images/uploaded_imgs/<?= $post['img_path'] ?>" ?>
                         <?php } ?>
                     </div>
@@ -177,28 +179,28 @@ foreach ($posts as $post):
             </div>
             <hr>
             <div class="post-footer">
-                <div class="love">
+                <div class="love icon-button">
                     <a class="menu-item reaction" href="">
                         <img src="../images/icon/love.png" alt="love">
                         <span>love</span>
                     </a>
                 </div>
 
-                <div class="comment">
-                    <a class="menu-item" href="">
+                <div class="comment icon-button">
+                    <a class="menu-item " href="">
                         <img src="../images/icon/comment.png" alt="Home">
                         <span>comment</span>
                     </a>
                 </div>
 
-                <div class="share">
-                <a class="menu-item" href="#" data-bs-toggle="modal" data-bs-target="#CreateRepostModal_<?= $post['post_id'] ?>" style="text-decoration:none;">
+                <div class="share icon-button">
+                    <a class="menu-item" href="#" data-bs-toggle="modal" data-bs-target="#CreateRepostModal_<?= $post['post_id'] ?>" style="text-decoration:none;">
                         <img src="../images/icon/repost.png" alt="Home">
-                        <span><?=getRepostCount($pdo, $post['post_id'])?></span>
+                        <span><?= getRepostCount($pdo, $post['post_id']) ?></span>
                     </a>
                 </div>
 
-                <div class="bookmark">
+                <div class="bookmark icon-button">
                     <a class="menu-item " href="">
                         <img src="../images/icon/book-mark.png" alt="bookmark">
                     </a>

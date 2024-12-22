@@ -29,7 +29,6 @@ aside,
     display: flex;
     align-items: center;
     padding-left: 30px;
-    /* border-bottom: var(--border-color) solid 1px; */
 }
 
 .logo img {
@@ -79,6 +78,7 @@ ul {
     width: 100%;
     padding:10px 0;
     text-decoration: none;
+    margin-bottom: 20px;
 }
 
 .menu-item img {
@@ -100,13 +100,6 @@ ul {
     border-radius: 40px;
     background-color: var(--hover-color);
 }
-
-/* .menu-item input[type="radio"]:checked + a {
-    opacity: 1;
-    border-radius: 40px;
-    background-color: var(--hover-color);
-} */
-
 
 .setting {
     position: absolute;
@@ -131,22 +124,18 @@ ul {
 .menu-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Đẩy phần tử đầu lên trên và phần tử cuối xuống dưới */
-    height: 100%; /* Chiều cao container bao phủ toàn bộ aside hoặc khu vực mong muốn */
+    justify-content: space-between; 
+    height: 100%;
 }
 
-/* Đảm bảo rằng mặc định SVG có màu trắng */
 .btn img {
-    filter: brightness(0) invert(1); /* Màu trắng cho SVG */
-    transition: filter 0.3s ease; /* Hiệu ứng chuyển đổi mượt mà */
+    filter: brightness(0) invert(1);
+    transition: filter 0.3s ease; 
 }
 
-/* Khi hover vào link, SVG sẽ chuyển sang màu đen */
 .btn:hover img {
-    filter: brightness(0) invert(0); /* Màu đen cho SVG */
+    filter: brightness(0) invert(0);
 }
-
-
 
 
 /* Sidebar phải */
@@ -171,19 +160,15 @@ ul {
 }
 
 .right-sidebar img {
-    flex-shrink: 0; /* Đảm bảo ảnh không bị thu nhỏ */
+    flex-shrink: 0;
     border-radius: 50%;
 }
 
 .right-sidebar p {
     margin: 0; 
-    line-height: 1; /* Căn chỉnh nội dung trung tâm hơn */
     font-size: 14px; 
-    text-align: left; /* Căn trái nội dung */
+    text-align: left;
 }
 
-.menu-item input[type="radio"] {
-    display: none;
-}
 
 

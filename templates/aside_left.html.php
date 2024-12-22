@@ -1,3 +1,6 @@
+<?php
+include "../ChangePassword/ChangePW.html.php";
+?>
 <aside class="aside-left">
     <div class="logo">
         <a href="">
@@ -41,7 +44,7 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a class="icon-button" href="#">
+                    <a class="icon-button" href="#" data-bs-toggle="modal" data-bs-target="#ChangePWModal_<?= $this_user['user_id'] ?>">
                         <img src="../images/icon/setting.png" alt="setting">Change Password
                     </a>
                 </li>

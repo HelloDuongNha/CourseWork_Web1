@@ -10,7 +10,6 @@
             <div class="modal-body">
                 <form action="../Edit_Post/Edit_Repost.php" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="post_id" value="<?= $post['post_id'] ?>">
-                    <!-- Tool chọn Module (cột 2, hàng 1) -->
                     <div class="input-group mb-3">
                         <label class="input-group-text" for="inputGroupSelect01">Module:</label>
                         <select class="form-select" id="inputGroupSelect01" name="repost_module_id">

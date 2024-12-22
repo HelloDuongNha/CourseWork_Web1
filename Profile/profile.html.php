@@ -7,10 +7,8 @@
             <img style="width: 200px; height: 200px; top: -50px; margin-top: 50px;" class='profile-avatar' src="../images/avatar/<?= !empty($this_user['avatar']) ? $this_user['avatar'] : 'profile.png' ?>">
         </div>
         <div style="cursor: pointer;">
-            <!-- Ảnh đại diện mà khi click sẽ kích hoạt input file -->
             <img class="change-avt-btn" id="check_avt_clicked" src="../images/icon/image-editing.png" alt="Upload Image" width="32" height="32">
 
-            <!-- Form chứa input file -->
             <form action="../Edit_Profile/edit_avatar.php" method="POST" enctype="multipart/form-data" style="display: none;">
                 <!-- id -->
                 <input type="hidden" name="user_id" value="<?= $user['user_id'] ?>">
@@ -98,12 +96,10 @@
         const fileInput = document.getElementById('upload-avt');
         const form = document.getElementById('upload-avt-form');
 
-        // Khi click vào hình ảnh, kích hoạt input file
         imageButton.addEventListener('click', function() {
             fileInput.click();
         });
 
-        // Khi chọn file, tự động submit form
         fileInput.addEventListener('change', function() {
             if (fileInput.files.length > 0) {
                 form.click();
